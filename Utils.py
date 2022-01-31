@@ -23,7 +23,7 @@ def initialize_parser():
     return parser.parse_args()
 
 def check_numero_giocatori(n_giocatori):
-    if n_giocatori>1 & n_giocatori<13:
+    if n_giocatori>1 and n_giocatori<13:
         return n_giocatori
     else:
         print('Errore - Il numero di giocatori deve essere superiore ad 1 fino ad un massimo di 12')
