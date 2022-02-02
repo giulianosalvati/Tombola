@@ -41,8 +41,8 @@ def check_lista_cartelle(n_giocatori, lista_cartelle):
             print('Errore - Il numero delle cartelle non deve superare il limite di 5 cartelle per giocatore')
             exit()
     return lista_cartelle
-            
-            
+
+    
                 
             
                     
