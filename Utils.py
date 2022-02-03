@@ -8,6 +8,9 @@ Created on Mon Jan 31 11:03:17 2022
 
 import argparse
 
+import giocatore
+
+
 def initialize_parser():
     
     parser = argparse.ArgumentParser()
@@ -42,7 +45,36 @@ def check_lista_cartelle(n_giocatori, lista_cartelle):
             exit()
     return lista_cartelle
 
+
+
+
+def assegnazione_cartelle(n_giocatori,lista_cartelle,gruppi_cartelle): 
     
+    giocatori={}
+    nomi=['cartella1','cartella2','cartella3','cartella4','cartella5','cartella6']
+    cartelle=[]
+    for i in range(0,len(gruppi_cartelle)):
+        cartelle.append(nomi)
+    
+    for i in range(1, n_giocatori+1):
+        
+        g=giocatore.Giocatore(str(i),lista_cartelle[i-1])
+        
+        for j in range (1,g.num_cartelle+1):
+            
+            for gruppo in list(range(0,len(gruppi_cartelle))):
+                if len(cartelle[gruppo])!=0:
+                    g.prendi_cartella(gruppi_cartelle[gruppo][cartelle[gruppo][0]])
+                    cartelle[gruppo].pop(0)
+                    break
+                     
+        giocatori[str(i)]=g
+        
+    return giocatori
+    
+    
+        
+
                 
             
                     
