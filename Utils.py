@@ -34,7 +34,20 @@ def check_numero_giocatori(n_giocatori):
 
 def check_lista_cartelle(n_giocatori, lista_cartelle):
     if len(lista_cartelle)!=n_giocatori:
-        print('Errore - Il numero di giocatori e quello delle cartelle non coincidono')
+        print('Errore - Vi sono giocatori a cui non è stata assegnata alcuna cartella')
+        if len(lista_cartelle)<n_giocatori:
+            sc=n_giocatori-len(lista_cartelle)
+            if sc == 1:
+                 print(' *** Mancano cartelle a ' +str(sc)+' giocatore! ***')
+            else:
+                 print(' *** Mancano cartelle a ' +str(sc)+' giocatori! ***')
+        else:
+            sc=len(lista_cartelle)-n_giocatori
+            if sc == 1:
+                print(' *** Hai assegnato troppe cartelle, manca ' +str(sc)+' giocatore! ***')
+            else:
+                print(' *** Hai assegnato troppe cartelle, mancano ' +str(sc)+' giocatori! ***')
+                
         exit()
     for c in lista_cartelle:
         if c<=0:
@@ -66,16 +79,15 @@ def assegnazione_cartelle(n_giocatori,lista_cartelle,gruppi_cartelle):
                 if len(cartelle[gruppo])!=0:
                     g.prendi_cartella(gruppi_cartelle[gruppo][cartelle[gruppo][0]])
                     cartelle[gruppo].pop(0)
-                    break
-                     
+                    break                    
+                                         
         giocatori[str(i)]=g
         
     return giocatori
-    
-    
-        
 
-                
-            
+
+
+
+
                     
                 
