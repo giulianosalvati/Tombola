@@ -113,8 +113,3 @@ def crea_gruppi(lista_cartelle):
         lista_gruppi.append(gruppo)
     return lista_gruppi
             
-
-        
-# for p in range(1,7):
-#      print(np.count_nonzero(gruppo[f'cartella{p}']))
-#      #stampo il numero di elementi diversi da zero all'interno di ciascuna cartella

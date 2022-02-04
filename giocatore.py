@@ -35,7 +35,6 @@ class Giocatore:
         """
         self.cartelle.append(cartella)
     
-    # Il metodo verifica se una cartella specifica del giocatore presenta il numero estratto
     def check_numero_estratto(self,cartella,numero_estratto):
         """
         Verifico che il giocatore abbia o meno il numero estratto in una delle sue cartelle
@@ -104,10 +103,6 @@ class Giocatore:
                         return vincite
             return vincite
 
-"""
-
-
-"""
 
 
             
