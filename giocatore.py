@@ -23,12 +23,31 @@ class Giocatore:
         self.num_cartelle = num_cartelle
         self.cartelle = []
         
-    # Il giocatore aggiunge alle sue cartelle una nuova cartella
-    def prendi_cartella(self, cartella):     
+
+    def prendi_cartella(self, cartella): 
+        """
+        Il giocatore aggiunge alle sue cartelle una nuova cartella.
+        Non ci sono parametri restituiti.
+              
+        parametri di ingresso:
+             cartella : cartella da aggiungere al giocatore
+              
+        """
         self.cartelle.append(cartella)
     
     # Il metodo verifica se una cartella specifica del giocatore presenta il numero estratto
     def check_numero_estratto(self,cartella,numero_estratto):
+        """
+        Verifico che il giocatore abbia o meno il numero estratto in una delle sue cartelle
+        Restiruisce la cartella, per cui 
+        se il numero era presente viene sostituito con -1 e stampato un messaggio
+        altrimenti non viene modificata la cartella
+              
+         parametri di ingresso:
+             cartella : cartella da verificare per la vincita
+             numero_estratto (int) : il valore estratto dal tabellone
+              
+        """    
         colonna=numero_estratto//10 
         for riga in range(0,3):
             if cartella[riga][colonna]==numero_estratto:    # Se la cartella presenta il numero
@@ -36,9 +55,18 @@ class Giocatore:
                 print('Ho il '+str(numero_estratto))
         return cartella
     
-    # Verifico che il giocatore abbia effettuato una vincita 
-    def check_vincite(self,cartella,vincite):       # vincite è un intero che mi dice a che vincita siamo arrivati.
-                                                    # All'inizio del gioco vincita=1 ed aumenta ogni volta che avviene una vincita
+
+    def check_vincite(self,cartella,vincite):       
+        """
+        Verifico che il giocatore abbia effettuato una vincita.
+        restiruisce il parametro vincita il quale
+        all'inizio del gioco vale 1 ed aumenta ogni volta che avviene una vincita
+              
+         parametri di ingresso:
+             vincite (int) che mi dice a che vincita siamo arrivati 
+             cartella : cartella da verificare per la vincita
+              
+        """                                           
         
         if vincite==5:                              # Se è gia stata vinta la cinquina
             # vedo se si è verificata la tombola: cioe i valori nella cartella sono solo 0 e -1
