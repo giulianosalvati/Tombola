@@ -89,7 +89,7 @@ def assegnazione_cartelle(n_giocatori,lista_cartelle,gruppi_cartelle):
     
     parametri di ingresso:
         n_giocatori (int): numero dei giocatori
-        lista_cartelle (int[]): lista delle cartelle da assegnare a ciascun giocatore
+        lista_cartelle (int[]): lista del numero di cartelle da assegnare a ciascun giocatore
         gruppi_cartelle: cartelle generate da assegnare a ciascun giocatore
     """
     
