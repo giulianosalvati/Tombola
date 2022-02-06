@@ -10,19 +10,8 @@ import sys
 
 class Cartella:
     
-    def __init__(self,cartella=None):
-        self.cartella = np.zeros([3,9])
-        
-    def inserisci_numero(self,riga,colonna,numero):
-        """
-        Riempio la cartella nella posizione [riga colonna] con il numero dato
-        
-        parametri in inglesso:
-            riga (int): riga in cui inserire il numero
-            colonna (int ): colonna in cui inserire il numero
-            numero (int): il numero da inserire nella cartella
-        """
-        self.cartella[riga,colonna]=numero
+    def __init__(self,cartella):
+        self.cartella = cartella
     
     def check_numero_estratto(self,numero_estratto):
         """
