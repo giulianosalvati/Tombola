@@ -6,14 +6,13 @@ Created on Tue Feb  1 11:37:39 2022
 @author: mariaelenacontini
 """
 
-import cartella
-
 
 """
 
 Classe giocatore
 
 """
+
 class Giocatore:
     
     # Costruttore
@@ -29,12 +28,12 @@ class Giocatore:
         Non ci sono parametri restituiti.
               
         parametri di ingresso:
-             cartella : cartella da aggiungere al giocatore
+             cartella_ : cartella da aggiungere al giocatore
               
         """
         self.cartelle.append(cartella_)
     
-    def controllo_cartella(self,numero_estratto,vincita):
+    def controllo_cartelle(self,numero_estratto,vincite):
         """
         Verifico che il giocatore abbia o meno il numero estratto in una delle sue cartelle
          e che il giocatore abbia effettuato una vincita.
@@ -44,12 +43,12 @@ class Giocatore:
              numero_estratto (int) : il valore estratto dal tabellone
              vincite (int): che mi dice a che vincita siamo arrivati 
               
-        """    
-        for i in len(self.cartelle):
-            self.cartelle[i].cartella.check_numero_estratto(numero_estratto)
+        """   
         
-        for j in len(self.cartelle):
-            self.cartelle[j].cartella.check_vincite(vincita)
+        for i in range(0,len(self.cartelle)):
+            self.cartelle[i].check_numero_estratto(numero_estratto)
+        for j in range(0,len(self.cartelle)):
+            vincite = self.cartelle[j].check_vincite(vincite)                                            
 
             
     

@@ -10,8 +10,8 @@ import sys
 
 class Cartella:
     
-    def __init__(self,cartella=np.zeros([3,9])):
-        self.cartella = cartella
+    def __init__(self,cartella=None):
+        self.cartella = np.zeros([3,9])
         
     def inserisci_numero(self,riga,colonna,numero):
         """
