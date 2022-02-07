@@ -12,6 +12,7 @@ Classe  che fornisce in uscita una lista di 6 cartelle (1 gruppo) che soddisfa i
 
 """
 
+import math
 import random 
 import numpy as np
 
@@ -20,7 +21,6 @@ class Gruppo:
     
     def __init__(self,gruppo_cartelle=None):
         
-        # self.group_id=gruppo_id
         self.gruppo_cartelle=[]
         
     def inserisci_numero(self,index_cartella,riga,colonna,numero):
@@ -144,6 +144,8 @@ class Gruppo:
                     
                     sr=np.sum(conta_righe,1)
                     
+                    
+                    
                     if (self.gruppo_cartelle[t][r,k]==0 and conta_colonne[t,k]==0 and conta_righe[t,r]<4): 
                         
                         #assegno in maniera casuale riempendo prima ciascuna colonna, dato che ogni colonna deve avere almeno un numero
@@ -219,7 +221,37 @@ class Gruppo:
                         r=random.randint(0,2)
                     
                     continue
-        
+            
+    def genera_gruppi(self,lista_cartelle):
+     
+      """ 
+      Metodo che crea tanti gruppi tante quante sono le cartelle richieste
+      
+      Input
+      -------
+      lista cartelle richieste dalla linea di comando 
+      
+      Output 
+      -------
+      lista di cartelle aventi multipli di 6 elementi
+      """
+      
+      
+      lista_cartelle_richieste=[]
+      conteggio= math.ceil(sum(lista_cartelle)/6)
+      for i in range(0,conteggio):
+          g=Gruppo()
+          g.crea_gruppo()
+          lista_cartelle_richieste= lista_cartelle_richieste + g.gruppo_cartelle
+          
+      
+      return lista_cartelle_richieste
+      
+      
+     
+     
+     
+         
                 
         
         
