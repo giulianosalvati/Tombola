@@ -10,6 +10,11 @@ import argparse
 
 import giocatore
 
+import Gruppo
+
+import math
+
+
 
 def initialize_parser():
     
@@ -80,41 +85,38 @@ def check_lista_cartelle(n_giocatori, lista_cartelle):
 
 
 
-def assegnazione_cartelle(n_giocatori,lista_cartelle,gruppi_cartelle):
-    """
-    Assegna a ciascun giocatore il numero richiesto di cartelle facendo in modo che
-    non sia possibile assegnare a più giocatori la medesima cartella.
-    Restituisce i giocatori inizializzati ognuno con il proprio nome, numero di cartelle che ha e 
-    quel numero di cartelle.
+def genera_gruppi(lista_cartelle):
+     
+      """ 
+      Metodo che crea tanti gruppi tante quante sono le cartelle richieste
+      
+      Input
+      -------
+      lista cartelle richieste dalla linea di comando 
+      
+      Output 
+      -------
+      lista di cartelle aventi multipli di 6 elementi
+      """
+      
+      
+      lista_cartelle_richieste=[]
+      conteggio= math.ceil(sum(lista_cartelle)/6)
+      for i in range(0,conteggio):
+          g=Gruppo.Gruppo()
+          g.crea_gruppo()
+          lista_cartelle_richieste= lista_cartelle_richieste + g.gruppo_cartelle
+          
+      
+      return lista_cartelle_richieste
+      
+def check_estrazione_corrente(giocatori,numero_estratto,vincite):
     
-    parametri di ingresso:
-        n_giocatori (int): numero dei giocatori
-        lista_cartelle (int[]): lista del numero di cartelle da assegnare a ciascun giocatore
-        gruppi_cartelle: cartelle generate da assegnare a ciascun giocatore
-    """
-    
-    giocatori={}
-    nomi=['cartella1','cartella2','cartella3','cartella4','cartella5','cartella6']
-    cartelle=[]
-    for i in range(0,len(gruppi_cartelle)):
-        cartelle.append(nomi)
-    
-    for i in range(1, n_giocatori+1):
+    for i in range(0,len(giocatori)):
+        print('Giocatore'+str(i)+':') 
+        vincite=giocatori[i].giocatore.controllo_cartelle(numero_estratto,vincite)
         
-        g=giocatore.Giocatore(str(i),lista_cartelle[i-1])
         
-        for j in range (1,g.num_cartelle+1):
-            
-            for gruppo in list(range(0,len(gruppi_cartelle))):
-                if len(cartelle[gruppo])!=0:
-                    g.prendi_cartella(gruppi_cartelle[gruppo][cartelle[gruppo][0]])
-                    cartelle[gruppo].pop(0)
-                    break                    
-                                         
-        giocatori[str(i)]=g
-        
-    return giocatori
-
 
 
 

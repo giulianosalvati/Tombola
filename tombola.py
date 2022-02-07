@@ -7,13 +7,22 @@ Created on Mon Jan 31 11:41:28 2022
 """
 
 import Utils
-import creaGruppo
- 
+import Banco
+
 args = Utils.initialize_parser()
 n_giocatori = Utils.check_numero_giocatori(args.giocatori)
 lista_cartelle = Utils.check_lista_cartelle(n_giocatori,args.numero_di_cartelle)
 
 print('-----------   INIZIO GIOCO   -----------')
-### assegnazione cartelle 
-gruppi_cartelle=creaGruppo.crea_gruppi(lista_cartelle)
-list_giocatori=Utils.assegnazione_cartelle(n_giocatori,lista_cartelle,gruppi_cartelle)
+
+Banco = Banco.Banco(n_giocatori,lista_cartelle) 
+vincite = 1
+giocatori = Banco.assegna_cartelle()
+
+
+# N=90
+# for i,n in zip(range(1,N+1), tabellone.Tabellone(N)):
+#     numero_estratto = n
+#     Utils.check_estrazione_corrente(giocatori,numero_estratto,vincite)
+
+
