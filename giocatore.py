@@ -35,7 +35,7 @@ class Giocatore:
         """
         self.cartelle.append(cartella_)
     
-    def controllo_cartelle(self,numero_estratto,vincite):
+    def controllo_numero(self,numero_estratto):
         """
         Verifico che il giocatore abbia o meno il numero estratto in una delle sue cartelle
          e che il giocatore abbia effettuato una vincita.
@@ -56,16 +56,23 @@ class Giocatore:
                     self.cartelle[i][riga][colonna]=-1                  # Viene sostituito un -1 
                     print('Ho il '+str(numero_estratto))
         
+        
+    def controllo_vincite(self,vincite):
+    
         for i in range(0,len(self.cartelle)):
+           
             if vincite==5:                              # Se è gia stata vinta la cinquina
                 # vedo se si è verificata la tombola: cioe i valori nella cartella sono solo 0 e -1
                 occorenze = np.unique(self.cartelle[i])
+                
                 if len(occorenze)==2: 
+                    
                     print('Tombola!')
                     print('------------------- FINE PARTITA ---------------------')
                     sys.exit() 
                     
                 else:
+                    
                     return vincite
                 
             else:
@@ -76,10 +83,12 @@ class Giocatore:
                         if self.cartelle[i][riga][colonna] == -1:
                             contatore=contatore+1
                     if contatore == vincita_successiva:
-                        vincite=vincita_successiva
+                        vincite = vincita_successiva
+                        
                         if vincite==2 :
                             print('Ambo')
                             return vincite  
+                        
                         elif vincite==3 :
                             print('Terna')
                             return vincite  
@@ -91,7 +100,8 @@ class Giocatore:
                         elif vincite==5 :
                             print('Cinquina')
                             return vincite
-                return vincite
+             
+            return vincite
         
                                        
 
