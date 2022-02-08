@@ -245,7 +245,7 @@ def genera_gruppi(lista_cartelle):
     lista_cartelle_richieste=[]
     conteggio= math.ceil(sum(lista_cartelle)/6)
     for i in range(0,conteggio):
-        g=Gruppo.Gruppo()
+        g=Gruppo()
         g.crea_gruppo()
         lista_cartelle_richieste= lista_cartelle_richieste + g.gruppo_cartelle
     return lista_cartelle_richieste
