@@ -9,7 +9,7 @@ Created on Tue Feb  1 11:37:39 2022
 
 """
 
-Classe giocatore
+Classe Giocatore
 
 """
 import numpy as np

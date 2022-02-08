@@ -8,7 +8,7 @@ Created on Mon Jan 31 11:03:17 2022
 
 import argparse
 
-import giocatore
+import Giocatore
 
 import Gruppo
 
@@ -141,7 +141,7 @@ def check_estrazione_corrente(giocatori,numero_estratto,vincite):
     
     for i in range(0,len(giocatori)):
         print('Giocatore'+str(i)+':') 
-        vincite=giocatori[i].giocatore.controllo_cartelle(numero_estratto,vincite)
+        vincite=giocatori[i].Giocatore.controllo_cartelle(numero_estratto,vincite)
         
         
         
