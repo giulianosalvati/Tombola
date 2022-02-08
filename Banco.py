@@ -30,7 +30,6 @@ class Banco:
         giocatori (giocatore[]) : lista di oggetti giocatore aventi ognuno il numero
         di cartelle richieste 
         
-      
         """
         cartelle_disponibili=[]
         cartelle_disponibili = Gruppo.genera_gruppi(self.lista_cartelle)
