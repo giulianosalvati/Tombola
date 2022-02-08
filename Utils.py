@@ -122,6 +122,7 @@ def genera_gruppi(lista_cartelle):
       
     return lista_cartelle_richieste
       
+
 def check_estrazione_corrente(giocatori,numero_estratto,vincite):
     """
     Verifico che i giocatore abbiano o meno il numero estratto in una delle loro cartelle
@@ -135,14 +136,17 @@ def check_estrazione_corrente(giocatori,numero_estratto,vincite):
      
     Output 
     -------
-    NaN
+    vincite (int): che mi dice a che vincita siamo arrivati 
              
     """   
     
     for i in range(0,len(giocatori)):
         print('Giocatore'+str(i)+':') 
-        vincite=giocatori[i].Giocatore.controllo_cartelle(numero_estratto,vincite)
-        
+        giocatori[i].controllo_numero(numero_estratto)
+        vincite= giocatori[i].controllo_vincite(vincite)
+    
+    return vincite
+
         
         
 

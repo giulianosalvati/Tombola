@@ -37,9 +37,9 @@ class Tabellone(object):
             raise StopIteration
 
             
-N=90
-for i,n in zip(range(1,N+1), Tabellone(N)):
-    print('')
+# N=90
+# for i,n in zip(range(1,N+1), Tabellone(N)):
+#     print('')
 
       
     
