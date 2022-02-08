@@ -221,35 +221,36 @@ class Gruppo:
                         r=random.randint(0,2)
                     
                     continue
-            
-    def genera_gruppi(self,lista_cartelle):
+
+      
+      
      
-      """ 
-      Metodo che crea tanti gruppi tante quante sono le cartelle richieste
-      
-      Input
-      -------
-      lista cartelle richieste dalla linea di comando 
-      
-      Output 
-      -------
-      lista di cartelle aventi multipli di 6 elementi
-      """
-      
-      
-      lista_cartelle_richieste=[]
-      conteggio= math.ceil(sum(lista_cartelle)/6)
-      for i in range(0,conteggio):
-          g=Gruppo()
-          g.crea_gruppo()
-          lista_cartelle_richieste= lista_cartelle_richieste + g.gruppo_cartelle
+def genera_gruppi(lista_cartelle):
+     
+    """ 
+    La funzuine genera n gruppi utilizzando il metodo 'crea_gruppo' della classe Gruppo()
+    in base a quante cartelle sono richieste dai giocatori
+        
+    Input
+    -------
+    lista_cartelle (int[]): lista dei numeri di cartelle da assegnare a ciascun giocatore
+        
+    Output 
+    -------
+    lista_cartelle_richieste (array[]) : lista di cartelle generate 
+          
+    """
+          
+          
+    lista_cartelle_richieste=[]
+    conteggio= math.ceil(sum(lista_cartelle)/6)
+    for i in range(0,conteggio):
+        g=Gruppo.Gruppo()
+        g.crea_gruppo()
+        lista_cartelle_richieste= lista_cartelle_richieste + g.gruppo_cartelle
+    return lista_cartelle_richieste
           
       
-      return lista_cartelle_richieste
-      
-      
-     
-     
      
          
                 

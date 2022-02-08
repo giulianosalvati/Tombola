@@ -6,7 +6,7 @@ Created on Mon Feb  7 13:36:57 2022
 @author: mariaelenacontini
 """
 
-import Utils
+import Gruppo
 import Giocatore
 import random
 
@@ -33,7 +33,7 @@ class Banco:
       
         """
         cartelle_disponibili=[]
-        cartelle_disponibili = Utils.genera_gruppi(self.lista_cartelle)
+        cartelle_disponibili = Gruppo.genera_gruppi(self.lista_cartelle)
         giocatori=[]
 
         for i in range(0,self.n_giocatori):

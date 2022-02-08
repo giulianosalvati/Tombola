@@ -10,9 +10,6 @@ import argparse
 
 import Giocatore
 
-import Gruppo
-
-import math
 
 
 
@@ -91,36 +88,6 @@ def check_lista_cartelle(n_giocatori, lista_cartelle):
             print('Errore - Il numero delle cartelle non deve superare il limite di 5 cartelle per giocatore')
             exit()
     return lista_cartelle
-
-
-
-
-def genera_gruppi(lista_cartelle):
-     
-    """ 
-    Il metodo genera n gruppi utilizzando il metodo 'crea_gruppo' della classe Gruppo()
-    in base a quante cartelle sono richieste dai giocatori
-    
-    Input
-    -------
-    lista_cartelle (int[]): lista dei numeri di cartelle da assegnare a ciascun giocatore
-    
-    Output 
-    -------
-    lista_cartelle_richieste (array[]) : lista di cartelle generate 
-      
-    """
-      
-      
-    lista_cartelle_richieste=[]
-    conteggio= math.ceil(sum(lista_cartelle)/6)
-    for i in range(0,conteggio):
-        g=Gruppo.Gruppo()
-        g.crea_gruppo()
-        lista_cartelle_richieste= lista_cartelle_richieste + g.gruppo_cartelle
-          
-      
-    return lista_cartelle_richieste
       
 
 def check_estrazione_corrente(giocatori,numero_estratto,vincite):
