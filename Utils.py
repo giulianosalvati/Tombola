@@ -110,12 +110,15 @@ def genera_gruppi(lista_cartelle):
       
       return lista_cartelle_richieste
       
+
 def check_estrazione_corrente(giocatori,numero_estratto,vincite):
     
     for i in range(0,len(giocatori)):
         print('Giocatore'+str(i)+':') 
-        vincite=giocatori[i].giocatore.controllo_cartelle(numero_estratto,vincite)
-        
+        giocatori[i].controllo_numero(numero_estratto)
+        vincite= giocatori[i].controllo_vincite(vincite)
+    
+    return vincite
         
 
 
