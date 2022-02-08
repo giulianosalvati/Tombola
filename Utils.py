@@ -32,13 +32,19 @@ def initialize_parser():
 
 def check_numero_giocatori(n_giocatori):
     """
-    verifica se il numero di giocatori è rispetta le regole (>1 e <=8)
-    restituisce il numero di giocatori se le regole sono rispettate,
-    altrimenti stampa un messaggio e termina il programma 
+    Verifica se il numero di giocatori è rispetta le regole (>1 e <=8)
     
-    parametri di ingresso:
-        n_giocatori (int): numero dei giocatori
+    Input
+    -------
+    n_giocatori (int): numero dei giocatori
+    
+    Output
+    ------
+    n_giocatori (int): numero dei giocatori
+    oppure
+    un messaggio e termina il programma
     """
+        
     if n_giocatori>1 and n_giocatori<9:
         return n_giocatori
     else:
@@ -47,15 +53,19 @@ def check_numero_giocatori(n_giocatori):
 
 def check_lista_cartelle(n_giocatori, lista_cartelle):
     """
-    verifica se la linghezza della lista di cartelle inserita corrisponde al numero
+    Verifica se la linghezza della lista di cartelle inserita corrisponde al numero
     di giocatori 
-    restituisce la lista delle cartelle se coincidono e se ad ogni giocatore sono assegnate
-    da 1 a 5 cartelle,
-    altrimenti stampa un messaggio e termina il programma 
+
+    Input
+    -------
+    n_giocatori (int): numero dei giocatori
+    lista_cartelle (int[]): lista delle cartelle da assegnare a ciascun giocatore
     
-    parametri di ingresso:
-        n_giocatori (int): numero dei giocatori
-        lista_cartelle (int[]): lista delle cartelle da assegnare a ciascun giocatore
+    Output
+    ------
+    lista_cartelle (int[]): lista delle cartelle da assegnare a ciascun giocatore
+    oppure
+    un messaggio e termina il programma
     """
     if len(lista_cartelle)!=n_giocatori:
         print('Errore - Vi sono giocatori a cui non è stata assegnata alcuna cartella')
@@ -87,31 +97,48 @@ def check_lista_cartelle(n_giocatori, lista_cartelle):
 
 def genera_gruppi(lista_cartelle):
      
-      """ 
-      Metodo che crea tanti gruppi tante quante sono le cartelle richieste
+    """ 
+    Il metodo genera n gruppi utilizzando il metodo 'crea_gruppo' della classe Gruppo()
+    in base a quante cartelle sono richieste dai giocatori
+    
+    Input
+    -------
+    lista_cartelle (int[]): lista dei numeri di cartelle da assegnare a ciascun giocatore
+    
+    Output 
+    -------
+    lista_cartelle_richieste (array[]) : lista di cartelle generate 
       
-      Input
-      -------
-      lista cartelle richieste dalla linea di comando 
-      
-      Output 
-      -------
-      lista di cartelle aventi multipli di 6 elementi
-      """
+    """
       
       
-      lista_cartelle_richieste=[]
-      conteggio= math.ceil(sum(lista_cartelle)/6)
-      for i in range(0,conteggio):
-          g=Gruppo.Gruppo()
-          g.crea_gruppo()
-          lista_cartelle_richieste= lista_cartelle_richieste + g.gruppo_cartelle
+    lista_cartelle_richieste=[]
+    conteggio= math.ceil(sum(lista_cartelle)/6)
+    for i in range(0,conteggio):
+        g=Gruppo.Gruppo()
+        g.crea_gruppo()
+        lista_cartelle_richieste= lista_cartelle_richieste + g.gruppo_cartelle
           
       
-      return lista_cartelle_richieste
+    return lista_cartelle_richieste
       
 
 def check_estrazione_corrente(giocatori,numero_estratto,vincite):
+    """
+    Verifico che i giocatore abbiano o meno il numero estratto in una delle loro cartelle
+    e che abbiano effettuato una vincita.   
+         
+    Input
+    -------
+    giocatori (Giocatore[]) : gli oggetti giocatori della tombola
+    numero_estratto (int) : il valore estratto dal tabellone
+    vincite (int): che mi dice a che vincita siamo arrivati 
+     
+    Output 
+    -------
+    NaN
+             
+    """   
     
     for i in range(0,len(giocatori)):
         print('Giocatore'+str(i)+':') 
@@ -119,6 +146,7 @@ def check_estrazione_corrente(giocatori,numero_estratto,vincite):
         vincite= giocatori[i].controllo_vincite(vincite)
     
     return vincite
+        
         
 
 
