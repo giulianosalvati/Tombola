@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+ #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jan 31 11:41:28 2022
@@ -8,6 +8,7 @@ Created on Mon Jan 31 11:41:28 2022
 
 import Utils
 import Banco
+import tabellone
 
 args = Utils.initialize_parser()
 n_giocatori = Utils.check_numero_giocatori(args.giocatori)
@@ -20,9 +21,11 @@ vincite = 1
 giocatori = Banco.assegna_cartelle()
 
 
-# N=90
-# for i,n in zip(range(1,N+1), tabellone.Tabellone(N)):
-#     numero_estratto = n
-#     Utils.check_estrazione_corrente(giocatori,numero_estratto,vincite)
+
+N=90
+for i,n in zip(range(1,N+1), tabellone.Tabellone(N)):
+      numero_estratto = n
+      vincite= Utils.check_estrazione_corrente(giocatori,n,vincite)
+      print(vincite)
 
 
