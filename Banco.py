@@ -10,6 +10,12 @@ import Gruppo
 import Giocatore
 import random
 
+"""
+
+Classe Banco
+
+"""
+
 class Banco:
     
     def __init__(self,n_giocatori,lista_cartelle):
@@ -32,12 +38,19 @@ class Banco:
         
       
         """
+        
         cartelle_disponibili=[]
         cartelle_disponibili = Gruppo.genera_gruppi(self.lista_cartelle)
         giocatori=[]
 
-        for i in range(0,self.n_giocatori):
+        # crea i giocatori (oggetti) e li inserisce nell'omonima lista
+        
+        for i in range(0,self.n_giocatori): 
             giocatori.append(Giocatore.Giocatore(str(i+1),self.lista_cartelle[i]))
+            
+            # a ciascun giocatore vengono assegnate, in maniera casuale tra quelle 
+            # disponibili, il numero di cartelle richieste
+            
             for j in range(0,self.lista_cartelle[i]):
                 index_cartella = random.randint(0,len(cartelle_disponibili)-1)
                 giocatori[i].prendi_cartella(cartelle_disponibili[index_cartella])
