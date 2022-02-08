@@ -7,7 +7,7 @@ Created on Fri Feb  4 17:22:02 2022
 """
 
 """
-Classe tombola
+Classe Tabellone
 
 """
 
@@ -36,10 +36,6 @@ class Tabellone(object):
         else:
             raise StopIteration
 
-            
-# N=90
-# for i,n in zip(range(1,N+1), Tabellone(N)):
-#     print('')
 
       
     
