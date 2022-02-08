@@ -64,7 +64,6 @@ class Gruppo:
         
     
     def crea_gruppo(self):
-        
         """
         Implementazione del gruppo di 6 cartelle
         
@@ -75,154 +74,106 @@ class Gruppo:
 
         Returns
         -------
-        Lista di 6 cartelle(matrici 3x6) contenenti numeri da 1 a 90 rispettanti i vincoli forniti.
+        gruppo_cartelle: Lista di 6 cartelle (matrici 3x9) contenenti numeri da 1 a 90 che rispettano i vincoli forniti.
 
         """
-      
-        
-        # Inizializzo matrici che tengono conto dei vincoli sulle righe(max 5 numeri) e  sulle colonne
-        # Le righe rappresentano le cartelle a cui si fa riferimento mentre le colonne rappresentano rispettivamente la riga i-esima di ciascuna cartella (i=0,1,2) e la colonna j-esima della cartella stessa (j=0,1,2..9)
-
+        # Inizializzo 2 matrici, conta_colonne (6,9) e conta_righe(6,3), che conteranno il numero di caselle occupate in ogni cartella, da utilizzare per verificare che i vincoli sulle righe(max 5 numeri) e sulle colonne siano rispettati
+        # Nelle 2 matrici le righe i rappresentano le cartelle a cui si fa riferimento mentre le colonne rappresentano rispettivamente:
+        #in conta_colonne(i,j): la colonna j-esima della cartella i-esima (j=0,1,2..9)
+        #in conta_righe(i,r): la riga r-esima di ciascuna cartella i (r=0,1,2)
         conta_colonne=np.zeros((6,9)) 
         conta_righe=np.zeros((6,3))
-        
-        #Inizializzo per ciascuna cartella una matrice 3x9 di zeri e l'aggiungo nel gruppo
-        for i in range(1,7):
+
+        #Inizializzo le 6 matrici cartella della lista gruppo_cartelle
+        for i in range(0,6):
             cartella=np.zeros((3,9))
             self.gruppo_cartelle.append(cartella)
-            
-        # Scelgo una cartella in maniera casuale in cui assegnare il 90 in basso a destra
-        # c=random.randint(0,5) 
-        
-        self.inserisci_numero(5,2,8,90)
-        # gruppo[c][2,8]=90
-        conta_colonne[5,8]+=1 
-        conta_righe[5,2]+=1
-        
-        
-        
-        # Procedo con un'assegnazione casuale dei primi 9 dei 90 totali rispettivamente sulla prima colonna di ciascuna cartella in modo random
+    
+        #assegno come posizione del numero novanta, l'ultima colonna dell'ultima riga dell'ultima cartella
+        pos_novanta=5
+        self.inserisci_numero(pos_novanta,2,8,90)
+        conta_colonne[pos_novanta][8]+=1
+        conta_righe[pos_novanta][2]+=1
 
-        for i in range(1,10):
-            t=random.randint(0,5) #Indice della cartella cui assegnerò il numero i
-            r=random.randint(0,2) # Selezione della riga sulla prima colonna a cui assegnerò il numero i
-            s=np.sum(conta_colonne[:,0])
-                     
-            while(self.gruppo_cartelle[t][r,0]!= i): #fintanto che non ho assegnato il numero  i
-            
-                if (self.gruppo_cartelle[t][r,0]==0  and conta_colonne[t,0]==0): #prima assegno assegno un numero ad almeno ogni cartella
-                
-                    self.inserisci_numero(t,r,0,i)
-                    conta_colonne[t,0]+=1 #quando aggiungo elemento incremento il contatore sulle due matrici
-                    conta_righe[t,r]+=1
-                    
-                elif( self.gruppo_cartelle[t][r,0]==0  and s>=6): 
-                    
-                    #entra in questo if quando ha assegnato un numero ad almeno ogni cartella (la somma sulla colonna è almeno 6)
-                    
-                    self.inserisci_numero(t,r,0,i)
-                    conta_colonne[t,0]+=1
-                    conta_righe[t,r]+=1
-                    
-                else:
-                    t=random.randint(0,5)
-                    r=random.randint(0,2)
-                continue 
-            
+        #step 1: assegno in modo random un 1 alle caselle da occupare in ciascuna cartella, rispettando i vincoli
        
-        # Procedo con un'assegnazione casuale dei rimanenti 79 numeri (da 10 a 89) sulle successive colonne
+        #step 1.1: assegno almeno un 1 su ciascuna colonna di ciascuna cartella, scegliendo casualmente la riga (occupando 54 caselle) 
+        for i in range(0,6):
+            for j in range(0,9):
+                if(i==pos_novanta and j==8): #su questa colonna già c'è almeno un numero che è 90 (non devo riassegnarlo)
+                    pass
+                else:
+                    r=random.randrange(3)
+                while conta_righe[i][r]==5: #nell'estrazione random tengo conto del vincolo sulle righe: se ho già 5 elementi su una riga ne devo estrarre un'altra
+                    r=random.randrange(3)
+                self.inserisci_numero(i,r,j,1)
+                conta_colonne[i][j]+=1
+                conta_righe[i][r]+=1
         
-        for k in range(1,9):
-            
-            for i in range(k*10,(k+1)*10):
-                
-                t=random.randint(0,5) 
-                r=random.randint(0,2) 
-                s=np.sum(conta_colonne[:,k])
-                
-                while (self.gruppo_cartelle[t][r,k]!=i):
-                    
-                    sr=np.sum(conta_righe,1)
-                    
-                    
-                    
-                    if (self.gruppo_cartelle[t][r,k]==0 and conta_colonne[t,k]==0 and conta_righe[t,r]<4): 
-                        
-                        #assegno in maniera casuale riempendo prima ciascuna colonna, dato che ogni colonna deve avere almeno un numero
-                        
-                        self.inserisci_numero(t,r,k,i)
-                        conta_colonne[t,k]+=1 
-                        conta_righe[t,r]+=1
-                        
-                    elif (self.gruppo_cartelle[t][r,k]==0 and s>=6 and conta_righe[t,r]<4): #assegno in maniera casuale su qualsiasi riga
-                    
-                        self.inserisci_numero(t,r,k,i)
-                        conta_colonne[t,k]+=1
-                        conta_righe[t,r]+=1
-                        
-                    elif (conta_righe[t,r]==4 or conta_righe[t,r]==5): 
-                        #se trovo una riga con 4 o con 5 numeri cerco le cartelle che hanno meno numeri, per individuare una posizione mirata
-                    
-                        if(s<6):
-                        #se s<6 vuol dire che per quella colonna del gruppo, c'è una cartella che ha ancora la colonna vuota
-                            t=np.argmin(conta_colonne[:,k]) #cerco la cartella che ha la colonna ancora vuota   
-                            
-                            r=np.argmin(conta_righe[t,:])
-                            
-                            self.inserisci_numero(t,r,k,i)
-                            conta_colonne[t,k]+=1
-                            conta_righe[t,r]+=1
-                            
-                        elif(s>=6):   
-                            #in questo caso per assegnare il numero, cerco la cartella con meno numeri e su quella cartella, la riga con meno numeri
-                            t=np.argmin(sr) #cerco la cartella che ha meno numeri
-                          
-                            r=np.argmin(conta_righe[t,:]) #la riga,di quella cartellla, che ha meno numeri tra le 3 
-                          
-                            if (self.gruppo_cartelle[t][r,k] != 0):
-                                
-                                #se individuo una posizione in cui già c'è un valore,per evitare una sovrascrittura,
-                                #applico uno scambio di posizione nelle colonne precedenti e trovo una posizione libera 
-                                   
-                                riga= self.gruppo_cartelle[t][r,:]
-                                indici=(np.argwhere(riga==0)) #trovo su quella riga gli indici liberi
-                                j=len(indici)-1             
-                                
-                                while(self.gruppo_cartelle[t][r,k]!= i and j>=0):
-                                    
-                                    indexc=indici[j]
-                                    #indice di colonna con cui scambiare
-                                    for indexr in range(0,3):
-                                        #cerco indice di riga con cui scambiare
-                                        if (self.gruppo_cartelle[t][indexr,indexc]!= 0 and self.gruppo_cartelle[t][indexr,k]==0):
-                                            #per fare lo scambio deve esserci un elemento in [indexr,indexc] 
-                                            #e deve essere vuota la posizione in cui andrò ad inserire il nuovo elemento
-                                            self.gruppo_cartelle[t][r,indexc] == self.gruppo_cartelle[t][indexr,indexc]   #scambio                  
-                                            conta_righe[t,r]+=1
-                                            self.inserisci_numero(t,indexr,indexc, 0) 
-                                            r=indexr
-                                            self.inserisci_numero(t,r,k,i) #inserisco nuovo elemento
-                                            conta_colonne[t,k]+=1
-                                            break
-                                        
-                                        else:
-                                            indexr+=1
-                                    j-=1 #scorro j finchè non trovo una cella con cui applicare lo scambio
-                                    
-                                    continue
-                            else:
-                                self.inserisci_numero(t,r,k,i)
-                                conta_colonne[t,k]+=1
-                                conta_righe[t,r]+=1 
-                                                    
-                    else:
-                        
-                        t=random.randint(0,5)
-                        r=random.randint(0,2)
-                    
-                    continue
+        #step 1.2: occupo le restanti 36 caselle in maniera casuale, rispettando però i vincoli sulle righe ed evitando sovrascritture
+        for k in range(0,36):
+            i=random.randrange(6)
+            j=random.randrange(9)
+            r=random.randrange(3)
+            while conta_righe[i][r]==5 or self.gruppo_cartelle[i][r][j]!=0:
+                i=random.randrange(6)
+                j=random.randrange(9)
+                r=random.randrange(3)
+            self.inserisci_numero(i,r,j,1)
+            conta_colonne[i][j]+=1
+            conta_righe[i][r]+=1
+    
+        #creo un vettore con i vincoli su ogni colonna del gruppo_cartelle 
+        #(nella prima colonna ci dovranno essere 9 caselle occupate per inserire i numeri da 1 a 9, nell'ultima 11 per inserire i numeri da 80 a 90)
+        vincoli=[9,10,10,10,10,10,10,10,11]
+        vincoli=np.array(vincoli)
 
-      
+        #step 1.3: controllo, procedendo riga per riga, quali colonne del gruppo_cartelle superano il vincolo e applico uno swap mirato
+        #andando ad individuare la colonna, con casella vuota sulla riga in esame, più lontana dal rispettare il vincolo.
+        for i in range(0,6): 
+            for r in range(0,3):
+               riga=self.gruppo_cartelle[i][r]
+               indici_occ=np.argwhere(riga==1) #trovo indici delle caselle occupate su quella riga
+               for k in indici_occ:
+                   s_colonne=np.sum(conta_colonne,0) # è un vettore che contiene il numero totale delle caselle occupate per ciascuna colonna del gruppo_cartelle
+                   if(s_colonne[k]>vincoli[k] and conta_colonne[i,k]>1):
+                       indici_vuoti=np.argwhere(riga==0)
+                       differenza=vincoli[indici_vuoti]-s_colonne[indici_vuoti]
+                       colonna_min=np.argmax(differenza) #scelgo la colonna in cui la differenza tra vincoli e s_colonne è massima
+                       swap=indici_vuoti[colonna_min]
+                       self.elimina_numero(i,r,k)
+                       conta_colonne[i][k]-=1
+                       self.inserisci_numero(i,r,swap,1) #applico lo swap e aggiorno i contatori
+                       conta_colonne[i][swap]+=1
+
+                   #step 2: dopo aver trovato le posizioni assegno i numeri da 1 a 90, in maniera casuale nelle posizioni individuate nel gruppo_cartelle
+                   
+                   #inizio con la prima colonna del gruppo, assegnando i numeri da 1 a 9
+                   estratti=[]
+                   for i in range(0,6):
+                       colonna=self.gruppo_cartelle[i][:,0] 
+                       #individuo sulla colonna della singola cartella quali sono le posizioni occupate a cui devo assegnare un numero da 1 a 9
+                       pos_occ=np.argwhere(colonna==1) 
+                       for j in pos_occ:
+                           n=random.randrange(1,10) #estraggo un numero a caso tra 1 e 9 che non sia già stato estratto
+                           while n in estratti:
+                               n=random.randrange(1,10)
+                           self.inserisci_numero(i,int(j),0,n)
+                           estratti.append(n)
+                           
+                   #continuo con le restanti colonne
+                   for k in range(1,9):
+                       estratti=[]
+                       for i in range(0,6):
+                           colonna=self.gruppo_cartelle[i][:,k]
+                           pos_occ=np.argwhere(colonna==1)
+                       for j in pos_occ:
+                           n=random.randrange(k*10,(k+1)*10)
+                       while n in estratti:
+                           n=random.randrange(k*10,(k+1)*10)
+                       self.inserisci_numero(i,int(j),k,n)
+                       estratti.append(n)
+
       
      
 def genera_gruppi(lista_cartelle):
