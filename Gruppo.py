@@ -104,11 +104,11 @@ class Gruppo:
                     pass
                 else:
                     r=random.randrange(3)
-                while conta_righe[i][r]==5: #nell'estrazione random tengo conto del vincolo sulle righe: se ho già 5 elementi su una riga ne devo estrarre un'altra
-                    r=random.randrange(3)
-                self.inserisci_numero(i,r,j,1)
-                conta_colonne[i][j]+=1
-                conta_righe[i][r]+=1
+                    while conta_righe[i][r]==5: #nell'estrazione random tengo conto del vincolo sulle righe: se ho già 5 elementi su una riga ne devo estrarre un'altra
+                        r=random.randrange(3)
+                    self.inserisci_numero(i,r,j,1)
+                    conta_colonne[i][j]+=1
+                    conta_righe[i][r]+=1
         
         #step 1.2: occupo le restanti 36 caselle in maniera casuale, rispettando però i vincoli sulle righe ed evitando sovrascritture
         for k in range(0,36):
@@ -146,35 +146,35 @@ class Gruppo:
                        self.inserisci_numero(i,r,swap,1) #applico lo swap e aggiorno i contatori
                        conta_colonne[i][swap]+=1
 
-                   #step 2: dopo aver trovato le posizioni assegno i numeri da 1 a 90, in maniera casuale nelle posizioni individuate nel gruppo_cartelle
+        #step 2: dopo aver trovato le posizioni assegno i numeri da 1 a 90, in maniera casuale nelle posizioni individuate nel gruppo_cartelle
                    
-                   #inizio con la prima colonna del gruppo, assegnando i numeri da 1 a 9
-                   estratti=[]
-                   for i in range(0,6):
-                       colonna=self.gruppo_cartelle[i][:,0] 
-                       #individuo sulla colonna della singola cartella quali sono le posizioni occupate a cui devo assegnare un numero da 1 a 9
-                       pos_occ=np.argwhere(colonna==1) 
-                       for j in pos_occ:
-                           n=random.randrange(1,10) #estraggo un numero a caso tra 1 e 9 che non sia già stato estratto
-                           while n in estratti:
-                               n=random.randrange(1,10)
-                           self.inserisci_numero(i,int(j),0,n)
-                           estratti.append(n)
+        #inizio con la prima colonna del gruppo, assegnando i numeri da 1 a 9
+        estratti=[]
+        for i in range(0,6):
+            colonna=self.gruppo_cartelle[i][:,0] 
+            #individuo sulla colonna della singola cartella quali sono le posizioni occupate a cui devo assegnare un numero da 1 a 9
+            pos_occ=np.argwhere(colonna==1) 
+            for j in pos_occ:
+                n=random.randrange(1,10) #estraggo un numero a caso tra 1 e 9 che non sia già stato estratto
+                while n in estratti:
+                    n=random.randrange(1,10)
+                self.inserisci_numero(i,int(j),0,n)
+                estratti.append(n)
                            
-                   #continuo con le restanti colonne
-                   for k in range(1,9):
-                       estratti=[]
-                       for i in range(0,6):
-                           colonna=self.gruppo_cartelle[i][:,k]
-                           pos_occ=np.argwhere(colonna==1)
-                       for j in pos_occ:
-                           n=random.randrange(k*10,(k+1)*10)
-                       while n in estratti:
-                           n=random.randrange(k*10,(k+1)*10)
-                       self.inserisci_numero(i,int(j),k,n)
-                       estratti.append(n)
+        #continuo con le restanti colonne
+        for k in range(1,9):
+            estratti=[]
+            for i in range(0,6):
+                colonna=self.gruppo_cartelle[i][:,k]
+                pos_occ=np.argwhere(colonna==1)
+                for j in pos_occ:
+                    n=random.randrange(k*10,(k+1)*10)
+                    while n in estratti:
+                        n=random.randrange(k*10,(k+1)*10)
+                    self.inserisci_numero(i,int(j),k,n)
+                    estratti.append(n)
+        
 
-      
      
 def genera_gruppi(lista_cartelle):
      
