@@ -28,10 +28,15 @@ class Giocatore:
         """
         Il giocatore aggiunge alle sue cartelle una nuova cartella.
         Non ci sono parametri restituiti.
-              
-        parametri di ingresso:
-             cartella_ : cartella da aggiungere al giocatore
-              
+                      
+        Input:      
+        ------
+        cartella_ : cartella da aggiungere al giocatore     
+           
+        Output
+        ------
+        Nan
+            
         """
         self.cartelle.append(cartella_)
     
@@ -39,11 +44,15 @@ class Giocatore:
         """
         Verifico che il giocatore abbia o meno il numero estratto in una delle sue cartelle
          e che il giocatore abbia effettuato una vincita.
-         Non ci sono parametri in uscita     
          
-         parametri di ingresso:
-             numero_estratto (int) : il valore estratto dal tabellone
-             vincite (int): che mi dice a che vincita siamo arrivati 
+        Input:      
+        ------
+        numero_estratto (int) : il valore estratto dal tabellone
+        vincite (int): che mi dice a che vincita siamo arrivati 
+        
+        Output
+        ------
+        Nan
               
         """   
         if numero_estratto==90:
