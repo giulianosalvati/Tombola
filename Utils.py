@@ -45,7 +45,7 @@ def check_numero_giocatori(n_giocatori):
     if n_giocatori>1 and n_giocatori<9:
         return n_giocatori
     else:
-        print('Errore - Il numero di giocatori deve essere superiore ad 1 fino ad un massimo di 12')
+        print('\n- ERRORE - Il numero di giocatori deve essere superiore ad 1 fino ad un massimo di 12\n')
         exit()
 
 def check_lista_cartelle(n_giocatori, lista_cartelle):
@@ -65,27 +65,27 @@ def check_lista_cartelle(n_giocatori, lista_cartelle):
     un messaggio e termina il programma
     """
     if len(lista_cartelle)!=n_giocatori:
-        print('Errore - Vi sono giocatori a cui non è stata assegnata alcuna cartella')
+        print('\n- ERRORE -  Vi sono giocatori a cui non è stata assegnata alcuna cartella\n')
         if len(lista_cartelle)<n_giocatori:
             sc=n_giocatori-len(lista_cartelle)
             if sc == 1:
-                 print(' *** Mancano cartelle a ' +str(sc)+' giocatore! ***')
+                 print(' *** Mancano cartelle a ' +str(sc)+' giocatore! ***\n')
             else:
-                 print(' *** Mancano cartelle a ' +str(sc)+' giocatori! ***')
+                 print(' *** Mancano cartelle a ' +str(sc)+' giocatori! ***\n')
         else:
             sc=len(lista_cartelle)-n_giocatori
             if sc == 1:
-                print(' *** Hai assegnato troppe cartelle, manca ' +str(sc)+' giocatore! ***')
+                print(' *** Hai assegnato troppe cartelle, manca ' +str(sc)+' giocatore! ***\n')
             else:
-                print(' *** Hai assegnato troppe cartelle, mancano ' +str(sc)+' giocatori! ***')
+                print(' *** Hai assegnato troppe cartelle, mancano ' +str(sc)+' giocatori! ***\n')
                 
         exit()
     for c in lista_cartelle:
         if c<=0:
-            print('Errore - Il numero delle cartelle per giocatore deve essere almeno 1')
+            print('\n- ERRORE -  Il numero delle cartelle per giocatore deve essere almeno 1\n')
             exit()
         elif c>5:
-            print('Errore - Il numero delle cartelle non deve superare il limite di 5 cartelle per giocatore')
+            print('\n- ERRORE -  Il numero delle cartelle non deve superare il limite di 5 cartelle per giocatore\n')
             exit()
     return lista_cartelle
       
