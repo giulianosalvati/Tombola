@@ -43,12 +43,10 @@ class Giocatore:
     def controllo_numero(self,numero_estratto):
         """
         Verifico che il giocatore abbia o meno il numero estratto in una delle sue cartelle
-         e che il giocatore abbia effettuato una vincita.
          
         Input:      
         ------
         numero_estratto (int) : il valore estratto dal tabellone
-        vincite (int): che mi dice a che vincita siamo arrivati 
         
         Output
         ------
@@ -73,6 +71,18 @@ class Giocatore:
         
         
     def controllo_vincite(self,vincite):
+        """
+        Verifico che il giocatore abbia o meno effettuato una vincita.
+         
+        Input:      
+        ------
+        vincite (int): che mi dice a che vincita siamo arrivati 
+        
+        Output
+        ------
+        Nan
+              
+        """   
     
         for i in range(0,len(self.cartelle)):
            
