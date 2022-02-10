@@ -45,7 +45,7 @@ def check_numero_giocatori(n_giocatori):
     if n_giocatori>1 and n_giocatori<9:
         return n_giocatori
     else:
-        print('\n- ERRORE - Il numero di giocatori deve essere superiore ad 1 fino ad un massimo di 12\n')
+        print('\n- ERRORE - Il numero di giocatori deve essere superiore ad 1 fino ad un massimo di 8\n')
         exit()
 
 def check_lista_cartelle(n_giocatori, lista_cartelle):
