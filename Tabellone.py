@@ -49,8 +49,8 @@ class Tabellone(object):
             while x in self.extracted:
                 x = random.randint(1,self.n)
             self.extracted.append(x)
-            print('È uscito il numero: ' + str(x))
-            input('Premi INVIO per continuare a giocare!')
+            print('\nÈ uscito il numero: ' + str(x))
+            input('Premi INVIO per vedere i risultati e per continuare a giocare!')
             return x
         else:
             raise StopIteration

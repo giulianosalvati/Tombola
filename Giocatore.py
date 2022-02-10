@@ -13,7 +13,7 @@ Classe Giocatore
 
 """
 import numpy as np
-import sys
+
 
 class Giocatore:
     
@@ -77,8 +77,7 @@ class Giocatore:
                 if len(occorenze)==2: 
                     
                     print('Tombola!')
-                    print('------------------- FINE PARTITA ---------------------')
-                    sys.exit() 
+                    vincite = 6 
                     
                 else:
                     
