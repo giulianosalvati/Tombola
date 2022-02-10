@@ -59,11 +59,14 @@ class Giocatore:
             colonna = 8
         else:
             colonna=numero_estratto//10
+        presente = 0
         for i in range(0,len(self.cartelle)):
             for riga in range(0,3):
                 if self.cartelle[i][riga][colonna]==numero_estratto:    # Se la cartella presenta il numero
                     self.cartelle[i][riga][colonna]=-1                  # Viene sostituito un -1 
-                    print('Ho il '+str(numero_estratto))
+                    presente += 1
+                    if presente==1:
+                        print('Ho il '+str(numero_estratto))
         
         
     def controllo_vincite(self,vincite):
