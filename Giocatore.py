@@ -13,7 +13,7 @@ Classe Giocatore
 
 """
 import numpy as np
-
+import Cartella
 
 class Giocatore:
     
@@ -61,8 +61,8 @@ class Giocatore:
                                                     # si presenta il numero estratto
         for i in range(0,len(self.cartelle)):
             for riga in range(0,3):
-                if self.cartelle[i][riga][colonna]==numero_estratto:    # Se la cartella presenta il numero
-                    self.cartelle[i][riga][colonna]=-1                  # Viene sostituito un -1 
+                if self.cartelle[i].cartella[riga][colonna]==numero_estratto:    # Se la cartella presenta il numero
+                    self.cartelle[i].cartella[riga][colonna]=-1                  # Viene sostituito un -1 
                     presente += 1
                     
                     if presente==1:                     # Tale if è necessario per non stampare più 
@@ -88,7 +88,7 @@ class Giocatore:
            
             if vincite==5:                              # Se è gia stata vinta la cinquina
                 # vedo se si è verificata la tombola: cioe i valori nella cartella sono solo 0 e -1
-                occorenze = np.unique(self.cartelle[i])
+                occorenze = np.unique(self.cartelle[i].cartella)
                 
                 if len(occorenze)==2: 
                     
@@ -104,7 +104,7 @@ class Giocatore:
                     contatore=0
                     vincita_successiva = vincite+1      
                     for colonna in range(0,9):
-                        if self.cartelle[i][riga][colonna] == -1:
+                        if self.cartelle[i].cartella[riga][colonna] == -1:
                             contatore=contatore+1
                     if contatore == vincita_successiva:
                         vincite = vincita_successiva

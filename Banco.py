@@ -56,6 +56,8 @@ class Banco:
                 cartelle_disponibili.pop(index_cartella)
                 
         return giocatori
+    
+    
         
         
             
