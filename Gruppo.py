@@ -28,25 +28,65 @@ class Gruppo:
         
    
     def inizializza_cartelle(self):
-        #Inizializzo le 6 matrici cartella della lista gruppo_cartelle
+       
+        """
+        Inizializzazione del gruppo di 6 cartelle costituenti il gruppo
+        
+        Input
+        -----
+        None.
+
+        Output
+        -------
+        Gruppo di sei cartelle (matrici 3x9) di zeri
+
+        """
         for i in range(0,6):
             cartella= Cartella.Cartella()
             self.gruppo_cartelle.append(cartella)
     
+    
     def posiziona_90(self):
-        #assegno come posizione del numero novanta, l'ultima colonna dell'ultima riga dell'ultima cartella
+        
+        """
+        Il numero 90, come imposto dai vincoli, viene collocato in basso a dx 
+        nella cartella indetta dalla variabile globale (ultima cartella)
+        
+        Input
+        -----
+        None.
+
+        Output
+        -------
+        None.
+
+       
+        """
         
         self.gruppo_cartelle[self.posizione_scelta].inserisci_numero(2,8,90)
         
+   
     def assegna_posizioni(self):
-        #vincoli sulle righe rispettati
-        
-        #step 1: assegno in modo random un 1 alle caselle da occupare in ciascuna cartella, rispettando i vincoli
        
-        #step 1.1: assegno almeno un 1 su ciascuna colonna di ciascuna cartella, scegliendo casualmente la riga (occupando 54 caselle) 
+        """
+        Metodo che assegna 1 in posizioni tali da rispettare i vincoli sulle righe
+        
+        Input
+        -----
+        None.
+
+        Output
+        -------
+        Gruppo di cartelle (matrici 3x6) costituite da 0 e 1, in particolare 5 uni su ciascuna riga
+
+        """
+        
+        
+        # assegno almeno un 1 su ciascuna colonna di ciascuna cartella, scegliendo casualmente la riga (occupando 54 caselle) 
+        
         for i in range(0,6):
             for j in range(0,9):
-                if(i== self.posizione_scelta and j==8): #su questa colonna già c'è almeno un numero che è 90 (non devo riassegnarlo)
+                if(i== self.posizione_scelta and j==8): #su questa colonna già c'è almeno un numero, ovvero 90 (non devo riassegnarlo)
                     pass
                 else:
                     r=random.randrange(3)
@@ -55,9 +95,8 @@ class Gruppo:
                     
                     self.gruppo_cartelle[i].inserisci_numero(r,j,1)
                     
-                    
-        
-        #step 1.2: occupo le restanti 36 caselle in maniera casuale, rispettando però i vincoli sulle righe ed evitando sovrascritture
+        # occupo le restanti 36 caselle in maniera casuale, rispettando però i vincoli sulle righe ed evitando sovrascritture
+  
         for k in range(0,36):
             i=random.randrange(6)
             j=random.randrange(9)
@@ -70,8 +109,23 @@ class Gruppo:
         
     
     def swap_posizioni(self,vincoli):
-        #step 1.3: controllo, procedendo riga per riga, quali colonne del gruppo_cartelle superano il vincolo e applico uno swap mirato
-        #andando ad individuare la colonna, con casella vuota sulla riga in esame, più lontana dal rispettare il vincolo.
+        
+        """
+        
+        Il seguente metodo permette un controllo riga per riga, considerando i vincoli sulle colonne,
+        in maniera tale da effettuare, al fine di rispettare questi ultimi, uno swap tra opportuni posizionamenti.
+
+        Input
+        ----------
+        vincoli (array[]): lista contenente 9 elementi ciascuno corrispondente al numero massimo di elementi di ciascuna colonna del gruppo
+
+        Output
+        -------
+        Gruppo di cartelle (matrici 3x6) costituite da 0 e 1, rispettante sia i vincoli sulle colonne che quelli sulle righe
+
+        """
+      
+        
         for i in range(0,6): 
             for r in range(0,3):
                 riga= self.gruppo_cartelle[i].cartella[r]
@@ -93,14 +147,27 @@ class Gruppo:
         
         
     def assegna_numeri(self):
-        #step 2: dopo aver trovato le posizioni assegno i numeri da 1 a 90, in maniera casuale nelle posizioni individuate nel gruppo_cartelle
+        
+        """
+        Collocazione dei numeri da 1 a 90 nelle posizioni individuate (sostituisco gli uni presenti nelle 6 cartelle)
+        
+        Input
+        -----
+        None.
+
+        Output
+        -------
+        None.
+
+        """
+        # Dopo aver trovato le posizioni assegno i numeri da 1 a 90, in maniera casuale nelle posizioni individuate nel gruppo_cartelle
                    
-        #inizio con la prima colonna del gruppo, assegnando i numeri da 1 a 9
+        # Inizio con la prima colonna del gruppo, assegnando i numeri da 1 a 9
         estratti=[]
         for i in range(0,6):
             self.gruppo_cartelle[i].azzera_contatori()
             colonna=self.gruppo_cartelle[i].cartella[:,0] 
-            #individuo sulla colonna della singola cartella quali sono le posizioni occupate a cui devo assegnare un numero da 1 a 9
+            # Individuo sulla colonna della singola cartella quali sono le posizioni occupate a cui devo assegnare un numero da 1 a 9
             pos_occ=np.argwhere(colonna==1) 
             for j in pos_occ:
                 n=random.randrange(1,10) #estraggo un numero a caso tra 1 e 9 che non sia già stato estratto
@@ -109,7 +176,7 @@ class Gruppo:
                 self.gruppo_cartelle[i].inserisci_numero(int(j),0,n)
                 estratti.append(n)
                            
-        #continuo con le restanti colonne
+        # Continuo con le restanti colonne
         for k in range(1,9):
             estratti=[]
             for i in range(0,6):
@@ -125,6 +192,7 @@ class Gruppo:
         
     
     def crea_gruppo(self):
+        
         """
         Implementazione del gruppo di 6 cartelle
         
@@ -133,17 +201,16 @@ class Gruppo:
         Nan.
        
 
-        Returns
+        Output
         -------
         gruppo_cartelle: Lista di 6 cartelle (matrici 3x9) contenenti numeri da 1 a 90 che rispettano i vincoli forniti.
 
         """
+       
         self.inizializza_cartelle()
         
         self.posiziona_90()
 
-        #step 1: assegno in modo random un 1 alle caselle da occupare in ciascuna cartella, rispettando i vincoli
-       
         self.assegna_posizioni()
     
         #creo un vettore con i vincoli su ogni colonna del gruppo_cartelle 
@@ -158,12 +225,10 @@ class Gruppo:
 
         
         
-        
-
 def genera_gruppi(lista_cartelle):
      
     """ 
-    La funzuine genera n gruppi utilizzando il metodo 'crea_gruppo' della classe Gruppo()
+    La funzione genera n gruppi utilizzando il metodo 'crea_gruppo' della classe Gruppo()
     in base a quante cartelle sono richieste dai giocatori
         
     Input
