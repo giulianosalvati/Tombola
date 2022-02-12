@@ -90,7 +90,7 @@ class Gruppo:
                     pass
                 else:
                     r=random.randrange(3)
-                    while self.gruppo_cartelle[i].conta_righe[r]==5: #nell'estrazione random tengo conto del vincolo sulle righe: se ho già 5 elementi su una riga ne devo estrarre un'altra
+                    while not self.gruppo_cartelle[i].verifica_vincolo_righe(r): #nell'estrazione random tengo conto del vincolo sulle righe: se ho già 5 elementi su una riga ne devo estrarre un'altra
                         r=random.randrange(3)
                     
                     self.gruppo_cartelle[i].inserisci_numero(r,j,1)

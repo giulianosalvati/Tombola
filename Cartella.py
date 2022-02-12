@@ -91,6 +91,26 @@ class Cartella:
         self.conta_colonne = np.zeros(9)
         self.conta_righe = np.zeros(3)
         
+         
+    def verifica_vincolo_righe(self,index_riga):
+        """
+        Il metodo mi dice se la riga di indice index_riga verifica o meno il vincolo 
+        di avere al più 5 elementi
+    
+        Input
+        -----
+        index_riga (int): indice riga in cui inserire il numero
+        
+        Output
+        ------
+        boolean : indica se la riga supera o meno la verifica: se la supera True - altrimenti False
+        
+        """
+        if self.conta_righe[index_riga]>=5:
+            return False
+        elif self.conta_righe[index_riga]<5:
+            return True
+        
     def posizione_libera(self,index_riga,index_colonna):
         """
         Il metodo mi dice se nella posizione [index_riga,index_colonna] è possibile
@@ -107,13 +127,13 @@ class Cartella:
         boolean : indica se la posizione della cartella è libera per il posizionamento di un valore
         
         """
-        if self.conta_righe[index_riga]==5:
+        if not self.verifica_vincolo_righe(index_riga):
             return False
         elif self.cartella[index_riga][index_colonna]!=0:
             return False
         else:
             return True
-    
+   
     
         
     
