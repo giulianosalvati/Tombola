@@ -127,3 +127,13 @@ class Giocatore:
              
             return vincite
         
+    def stampa_cartelle(self):
+        
+        print(f"Cartelle del giocatore {self.nome}")
+        for i in range(0,len(self.cartelle)):
+            print('Cartella '+str(i+1))
+            print(self.cartelle[i].cartella)
+                
+                
+                
+                

@@ -90,30 +90,17 @@ def check_lista_cartelle(n_giocatori, lista_cartelle):
     return lista_cartelle
       
 
-def check_estrazione_corrente(giocatori,numero_estratto,vincite):
-    """
-    Verifico che i giocatore abbiano o meno il numero estratto in una delle loro cartelle
-    e che abbiano effettuato una vincita.   
-         
-    Input
-    -------
-    giocatori (Giocatore[]) : gli oggetti giocatori della tombola
-    numero_estratto (int) : il valore estratto dal tabellone
-    vincite (int): che mi dice a che vincita siamo arrivati 
-     
-    Output 
-    -------
-    vincite (int): che mi dice a che vincita siamo arrivati 
-             
-    """   
-    
-    for i in range(0,len(giocatori)):
-        print('Giocatore'+str(i)+':') 
-        giocatori[i].controllo_numero(numero_estratto)
-        vincite= giocatori[i].controllo_vincite(vincite)
-    
-    return vincite
-
+# def domanda_di_stampa(n_giocatori,giocatori):
+#     boolean = input('Vuoi vedere le cartelle dei giocatori? y/n : ')
+#     if boolean == 'y' or boolean == 'yes':
+#         nome_giocatore = input('Indica il numero del giocatore: ')
+#         if nome_giocatore in list(range(1,n_giocatori+1)):
+#             for i in range(0,n_giocatori):
+#                 if giocatori[i].Giocatore.nome == str(nome_giocatore):
+#                     giocatori[i].Giocatore.stampa_cartelle()
+        
+        
+        
         
         
 
