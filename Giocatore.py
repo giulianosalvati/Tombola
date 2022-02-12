@@ -57,17 +57,18 @@ class Giocatore:
             colonna = 8
         else:
             colonna=numero_estratto//10
-        presente = 0                                # contatore che indica in quante cartelle del giocatore
+        stampa = True                                # contatore che indica in quante cartelle del giocatore
                                                     # si presenta il numero estratto
         for i in range(0,len(self.cartelle)):
             for riga in range(0,3):
                 if self.cartelle[i].cartella[riga][colonna]==numero_estratto:    # Se la cartella presenta il numero
                     self.cartelle[i].cartella[riga][colonna]=-1                  # Viene sostituito un -1 
-                    presente += 1
                     
-                    if presente==1:                     # Tale if è necessario per non stampare più 
+                    
+                    if stampa:                     # Tale if è necessario per non stampare più 
                                                         # di una volta il messaggio
                         print('Ho il '+str(numero_estratto))
+                        stampa = False
         
         
     def controllo_vincite(self,vincite):
