@@ -11,7 +11,7 @@ class Cartella:
     
     """
     La classe Cartella:
-        attributi della classe:
+        Attributi della classe:
             - cartella che viene inizializzata come una matrice 3x9 di zeri e successivamente in 15 posizioni di
             questa matrice vengono inseririti seguendo i vincoli richiesti
             - conta_colonne è un vettore lungo 9 inizializzato come vettore di zeri.È un contatore degli
@@ -29,6 +29,7 @@ class Cartella:
         self.conta_righe = np.zeros(3) 
     
     def aggiorna_conteggio(self,index_riga, index_colonna): 
+        
         """
         Metodo che aggiorna i contatori su righe e colonne, incrementandoli di 1
         

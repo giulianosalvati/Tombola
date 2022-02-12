@@ -14,6 +14,7 @@ import sys
 args = Utils.initialize_parser()
 n_giocatori = Utils.check_numero_giocatori(args.giocatori)
 lista_cartelle = Utils.check_lista_cartelle(n_giocatori,args.numero_di_cartelle)
+
 def check_estrazione_corrente(giocatori,numero_estratto,vincite):
     """
     Verifico che i giocatore abbiano o meno il numero estratto in una delle loro cartelle

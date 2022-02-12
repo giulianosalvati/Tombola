@@ -6,14 +6,17 @@ Created on Fri Feb  4 17:22:02 2022
 @author: mariaelenacontini
 """
 
-"""
-Classe Tabellone
-
-"""
 
 import random
 
 class Tabellone(object):
+    """
+    Classe Tabellone si occupa dell'estrazione dei numeri, in maniera casuale, da 1 a 10
+     Attributi della classe:
+         - n : numero estratto(int)
+         - extracted: lista inizializzata vuota e successivamente contente i numeri estratti
+    
+    """
     
     def __init__(self,n):
         
@@ -57,4 +60,3 @@ class Tabellone(object):
 
 
       
-    

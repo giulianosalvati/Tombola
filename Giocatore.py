@@ -7,15 +7,22 @@ Created on Tue Feb  1 11:37:39 2022
 """
 
 
-"""
-
-Classe Giocatore
-
-"""
 import numpy as np
 import Cartella
 
 class Giocatore:
+        
+    """
+    
+    Classe Giocatore che prende le cartelle assegnatele dal banco, controlla 
+    su di essa i numeri estratti e comunica la vincita.
+        Attributi della classe:
+            - nome: identificativo del giocatore.
+            - num_cartelle: numero delle cartelle richieste dal giocatore.
+            - cartelle: lista inizializzata vuota che successivamente verrà riempita nel momento in cui 
+                       il banco assegna le cartelle richieste dal giocatore.
+    
+    """
     
     # Costruttore
     def __init__(self , nome , num_cartelle, cartelle=None):
