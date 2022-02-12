@@ -180,7 +180,7 @@ class Gruppo:
         for k in range(1,9):
             estratti=[]
             for i in range(0,6):
-                colonna=self.gruppo_cartelle[i].cartella[:,k]
+                colonna=self.gruppo_cartelle[i].estrai_colonna(k)
                 pos_occ=np.argwhere(colonna==1)
                 for j in pos_occ:
                     n=random.randrange(k*10,(k+1)*10)

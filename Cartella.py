@@ -134,7 +134,23 @@ class Cartella:
         else:
             return True
    
+    def estrai_colonna(self, index_colonna):
+        """
+        Il metodo estrae dalla cartella la colonna di indice index_colonna
     
+        Input
+        -----
+        index_colonna (int ): indice colonna idi riferimento
+        
+        Output
+        ------
+        colonna_selezionata (int[]): corrisponde alla lista degli elementi della colonna 
+                                     di indice index_colonna 
+        
+        """
+        
+        colonna_selezionata = self.cartella[:,index_colonna]
+        return colonna_selezionata
         
     
         
