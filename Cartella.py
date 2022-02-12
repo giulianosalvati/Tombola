@@ -111,6 +111,14 @@ class Cartella:
         elif self.conta_righe[index_riga]<5:
             return True
         
+    def posizione_occupata(self,index_riga,index_colonna):
+        if self.cartella[index_riga][index_colonna] == -1:
+            return True
+        elif self.cartella[index_riga][index_colonna] != 0:
+            return True 
+        else:
+            return False
+        
     def posizione_libera(self,index_riga,index_colonna):
         """
         Il metodo mi dice se nella posizione [index_riga,index_colonna] è possibile
@@ -129,7 +137,7 @@ class Cartella:
         """
         if not self.verifica_vincolo_righe(index_riga):
             return False
-        elif self.cartella[index_riga][index_colonna]!=0:
+        elif self.posizione_occupata(index_riga,index_colonna):
             return False
         else:
             return True
@@ -152,7 +160,26 @@ class Cartella:
         colonna_selezionata = self.cartella[:,index_colonna]
         return colonna_selezionata
         
+    def numero_gia_estratto(self,index_riga,index_colonna):
+        """
+        Il metodo mi dice se nella posizione [index_riga,index_colonna] il valore
+        è stato estratto (cioe uguale a -1 per la convenzione del programma)
     
+        Input
+        -----
+        index_riga (int): indice riga della posiziona
+        index_colonna (int ): indice colonna della posizione
+        
+        Output
+        ------
+        boolean : indica se nella posizione della cartella il numero è stato estratto o meno,
+                 True se estratto - False se non è stato estratto
+        
+        """
+        if self.cartella[index_riga][index_colonna] == -1:
+            return True
+        else:
+            return False
         
         
     

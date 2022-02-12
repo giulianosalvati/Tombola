@@ -107,7 +107,7 @@ class Giocatore:
                     contatore=0
                     vincita_successiva = vincite+1      
                     for colonna in range(0,9):
-                        if self.cartelle[i].cartella[riga][colonna] == -1:
+                        if self.cartelle[i].numero_gia_estratto(riga,colonna):
                             contatore=contatore+1
                     if contatore == vincita_successiva:
                         vincite = vincita_successiva
