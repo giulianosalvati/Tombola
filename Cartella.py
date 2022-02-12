@@ -91,7 +91,28 @@ class Cartella:
         self.conta_colonne = np.zeros(9)
         self.conta_righe = np.zeros(3)
         
+    def posizione_libera(self,index_riga,index_colonna):
+        """
+        Il metodo mi dice se nella posizione [index_riga,index_colonna] è possibile
+        inserire un numero, verificando che tale posizione non sia occupata e che la 
+        somma degli elementi sulla riga non sia 5
+    
+        Input
+        -----
+        index_riga (int): indice riga in cui inserire il numero
+        index_colonna (int ): indice colonna in cui inserire il numero
         
+        Output
+        ------
+        boolean : indica se la posizione della cartella è libera per il posizionamento di un valore
+        
+        """
+        if self.conta_righe[index_riga]==5:
+            return False
+        elif self.cartella[index_riga][index_colonna]!=0:
+            return False
+        else:
+            return True
     
     
         

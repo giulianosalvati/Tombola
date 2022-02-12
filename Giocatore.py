@@ -57,8 +57,10 @@ class Giocatore:
             colonna = 8
         else:
             colonna=numero_estratto//10
-        stampa = True                                # contatore che indica in quante cartelle del giocatore
-                                                    # si presenta il numero estratto
+        stampa = True                                # Questo valore mi dice se devo stampare il fatto di avere o meno un numero
+                                                    # viene inizializzato a true quindi se il giocatore ha in una delle sue cartelle il numero
+                                                    # viene stampato un messaggio e reso false la variabile, cosi da non stampare il messaggio nel caso in cui
+                                                    # il giocatore abbia nuovamente il numero in altre cartelle
         for i in range(0,len(self.cartelle)):
             for riga in range(0,3):
                 if self.cartelle[i].cartella[riga][colonna]==numero_estratto:    # Se la cartella presenta il numero

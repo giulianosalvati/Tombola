@@ -101,7 +101,7 @@ class Gruppo:
             i=random.randrange(6)
             j=random.randrange(9)
             r=random.randrange(3)
-            while self.gruppo_cartelle[i].conta_righe[r]==5 or self.gruppo_cartelle[i].cartella[r][j]!=0:
+            while not self.gruppo_cartelle[i].posizione_libera(r,j):
                 i=random.randrange(6)
                 j=random.randrange(9)
                 r=random.randrange(3)
