@@ -9,10 +9,24 @@ import numpy as np
 
 class Cartella:
     
+    """
+    La classe Cartella:
+        attributi della classe:
+            - cartella che viene inizializzata come una matrice 3x9 di zeri e successivamente in 15 posizioni di
+            questa matrice vengono inseririti seguendo i vincoli richiesti
+            - conta_colonne è un vettore lungo 9 inizializzato come vettore di zeri.È un contatore degli
+            elementi sulle colonne della cartella che viene incrementato di 1
+            ogni volta che viene inserito un numero nella cartella nella rispettiva colonna
+            e decrementa di 1 se eliminato
+            - conta_righe è un vettore lungo 3 inizializzato come vettore di zeri. Analogo del 
+            contatore precedente per le righe
+    """
+    
     def __init__(self,cartella=None,conta_colonne=None,conta_righe=None):
+        
         self.cartella = np.zeros((3,9))
-        self.conta_colonne = np.zeros(9) # Contatore degli elementi sulle colonne della cartella
-        self.conta_righe = np.zeros(3) # Contatore degli elementi sulle righe della cartella
+        self.conta_colonne = np.zeros(9) 
+        self.conta_righe = np.zeros(3) 
     
     def aggiorna_conteggio(self,index_riga, index_colonna): 
         """
