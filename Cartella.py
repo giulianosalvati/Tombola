@@ -19,7 +19,7 @@ class Cartella:
             ogni volta che viene inserito un numero nella cartella nella rispettiva colonna
             e decrementa di 1 se eliminato
             - conta_righe è un vettore lungo 3 inizializzato come vettore di zeri. Analogo del 
-            contatore precedente per le righe
+            contatore precedente ma riferito alle righe
     """
     
     def __init__(self,cartella=None,conta_colonne=None,conta_righe=None):
@@ -126,9 +126,7 @@ class Cartella:
             return True
         
     def posizione_occupata(self,index_riga,index_colonna):
-        if self.cartella[index_riga][index_colonna] == -1:
-            return True
-        elif self.cartella[index_riga][index_colonna] != 0:
+        if self.cartella[index_riga][index_colonna] != 0:
             return True 
         else:
             return False
