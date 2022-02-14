@@ -7,11 +7,6 @@ Created on Sun Feb  6 12:16:53 2022
 
 """
 
-"""
-Classe  che fornisce in uscita una lista di 6 cartelle (1 gruppo) che soddisfa i vincoli preposti
-
-"""
-
 import math
 import random 
 import Cartella
@@ -20,7 +15,16 @@ import numpy as np
 
 class Gruppo:
     
-    posizione_scelta=5
+    """
+    Classe Gruppo fornisce in uscita una lista di 6 cartelle (1 gruppo) che soddisfa i vincoli preposti.
+        Attributo della classe:
+            - gruppo_cartelle:lista inizializzata vuota che verrà successivamente riempita con 6 cartelle (matrici 3x9 ciascuna)
+                              costituenti un gruppo di cartelle rispettante i vincoli sulle colonne e sulle righe.
+
+    """
+    
+    # Variabile globale che corrisponde alla cartella scelta in maniera soggettiva a cui verrà assegnato il numero 90 rispettando i vincoli
+    posizione_scelta=5 
     
     def __init__(self,gruppo_cartelle=None):
         
@@ -166,7 +170,7 @@ class Gruppo:
         estratti=[]
         for i in range(0,6):
             self.gruppo_cartelle[i].azzera_contatori()
-            colonna=self.gruppo_cartelle[i].estrai_colonna(0)
+            colonna= self.gruppo_cartelle[i].estrai_colonna(0)
             # Individuo sulla colonna della singola cartella quali sono le posizioni occupate a cui devo assegnare un numero da 1 a 9
             pos_occ=np.argwhere(colonna==1) 
             for j in pos_occ:
@@ -206,15 +210,17 @@ class Gruppo:
         gruppo_cartelle: Lista di 6 cartelle (matrici 3x9) contenenti numeri da 1 a 90 che rispettano i vincoli forniti.
 
         """
-       
+        
+        
         self.inizializza_cartelle()
         
         self.posiziona_90()
 
         self.assegna_posizioni()
     
-        #creo un vettore con i vincoli su ogni colonna del gruppo_cartelle 
-        #(nella prima colonna ci dovranno essere 9 caselle occupate per inserire i numeri da 1 a 9, nell'ultima 11 per inserire i numeri da 80 a 90)
+        #creo un vettore rappresentativo dei vincoli su ogni colonna del gruppo_cartelle 
+        #(nella prima colonna ci dovranno essere 9 caselle occupate per inserire i numeri da 1 a 9, dalla seconda alla punultima le caselle 
+        # da occupare sono 10, nell'ultima 11 per inserire i numeri da 80 a 90)
         
         vincoli_colonne=np.array([9,10,10,10,10,10,10,10,11])
 
