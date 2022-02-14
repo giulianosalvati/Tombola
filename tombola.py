@@ -21,13 +21,13 @@ def check_estrazione_corrente(giocatori,numero_estratto,vincite):
     e che abbiano effettuato una vincita.   
          
     Input
-    -------
+    -----
     giocatori (Giocatore[]) : gli oggetti giocatori della tombola
     numero_estratto (int) : il valore estratto dal tabellone
     vincite (int): che mi dice a che vincita siamo arrivati 
      
     Output 
-    -------
+    ------
     vincite (int): che mi dice a che vincita siamo arrivati 
              
     """   
@@ -42,7 +42,14 @@ def check_estrazione_corrente(giocatori,numero_estratto,vincite):
 print('\n-----------   INIZIO GIOCO   -----------')
 
 Banco = Banco.Banco(n_giocatori,lista_cartelle) 
-vincite = 1
+
+# La variabile 'vincite' è una variabile globale inizializzata ad 1 che tiene il
+# conto delle vincite uscite. Ogni volta che viene fatta una vincita, questa variabile 
+# aumenta di 1. 
+# ES.: viene fatto ambo --> vincite == 2 ... aumentando di 1 ad ogni vincita si avrà che 
+# una volta che viene effutuata la cinquina 'vincite' è ==5. A questo punto il programma
+# sa che la prossima vincià è la tombola
+vincite = 1 
 giocatori = Banco.assegna_cartelle()
 
 

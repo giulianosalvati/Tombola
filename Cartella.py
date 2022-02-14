@@ -150,7 +150,7 @@ class Cartella:
         
     def posizione_occupata(self,index_riga,index_colonna):
         """
-        Il metodo verifica se la casella in posizione [index_riga,ondex_colonna]
+        Il metodo verifica se la casella in posizione [index_riga,index_colonna]
         è vuota o contine un valore
     
         Input
