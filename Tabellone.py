@@ -8,6 +8,7 @@ Created on Fri Feb  4 17:22:02 2022
 
 
 import random
+import numpy as np
 
 class Tabellone(object):
     """
@@ -18,10 +19,11 @@ class Tabellone(object):
     
     """
     
-    def __init__(self,n):
+    def __init__(self,n,cartellone=None):
         
         self.n = n
         self.extracted = []
+    
     
     def __iter__(self):
         """
@@ -58,5 +60,10 @@ class Tabellone(object):
         else:
             raise StopIteration
 
-
+    
+                        
+                  
+             
+                  
+    
       

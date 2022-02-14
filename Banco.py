@@ -9,6 +9,8 @@ Created on Mon Feb  7 13:36:57 2022
 import Gruppo
 import Giocatore
 import random
+import Cartellone
+import numpy as np
 
 class Banco:
     """
@@ -25,7 +27,7 @@ class Banco:
     def __init__(self,n_giocatori,lista_cartelle):
         self.n_giocatori = n_giocatori
         self.lista_cartelle = lista_cartelle
-            
+     
     def assegna_cartelle(self):
         """
         Assegna a ciascun giocatore il numero richiesto di cartelle facendo in modo che
@@ -55,13 +57,39 @@ class Banco:
             # disponibili, il numero di cartelle richieste
             
             for j in range(0,self.lista_cartelle[i]):
+                
                 index_cartella = random.randint(0,len(cartelle_disponibili)-1)
                 giocatori[i].prendi_cartella(cartelle_disponibili[index_cartella])
                 cartelle_disponibili.pop(index_cartella)
                 
         return giocatori
     
+    def inizializza_cartellone(self):
+        """
+        Il metodo inizializza la classe Cartellone all'oggetto cartellone gli assegna le corrispondenti cartelle
+        Input
+        -----
+        NaN
+        
+        Output
+        ------
+        cartellone(object) : giocatore che possiede il cartellone
+        
+        """
+        cartellone= Cartellone.Cartellone()
+        cartellone.genera_cartellone()
+        return cartellone
+        
+        
+        
+        
+        
+        
+        
+        
     
+    
+      
         
         
             

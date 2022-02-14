@@ -27,6 +27,7 @@ class Cartella:
         self.cartella = np.zeros((3,9))
         self.conta_colonne = np.zeros(9) 
         self.conta_righe = np.zeros(3) 
+        
     
     def aggiorna_conteggio(self,index_riga, index_colonna): 
         

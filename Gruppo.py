@@ -26,9 +26,10 @@ class Gruppo:
     # Variabile globale che corrisponde alla cartella scelta in maniera soggettiva a cui verrà assegnato il numero 90 rispettando i vincoli
     posizione_scelta=5 
     
-    def __init__(self,gruppo_cartelle=None):
+    def __init__(self,gruppo_cartelle=None,cartellone=None):
         
         self.gruppo_cartelle=[]
+        self.cartellone=[]
         
    
     def inizializza_cartelle(self):
@@ -227,6 +228,8 @@ class Gruppo:
         self.swap_posizioni(vincoli_colonne)
         
         self.assegna_numeri()
+        
+    
                         
 
         
@@ -256,9 +259,7 @@ def genera_gruppi(lista_cartelle):
         lista_cartelle_richieste= lista_cartelle_richieste + g.gruppo_cartelle
     return lista_cartelle_richieste
           
-      
-     
-         
+
                 
         
         
