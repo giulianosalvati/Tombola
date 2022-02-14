@@ -40,5 +40,9 @@ Per elencare tutte le opzioni possibili digitare:
 
 Premere `return` per estrarre un numero. Dopo ogni numero viene visualizzato il corrispondente risultato per ciascun giocatore.
 
+Ad ogni estrazione è possibile visualizzare lo stato delle cartelle dei giocatori. Per visualizzarle bisogna rispondere 'yes' o 'y' in
+input quando in linea di comando viene visualizzata:
+
+> `Vuoi vedere le cartelle dei giocatori? y/n :`
 
 
