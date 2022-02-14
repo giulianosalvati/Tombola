@@ -90,14 +90,30 @@ def check_lista_cartelle(n_giocatori, lista_cartelle):
     return lista_cartelle
       
 
-# def domanda_di_stampa(n_giocatori,giocatori):
-#     boolean = input('Vuoi vedere le cartelle dei giocatori? y/n : ')
-#     if boolean == 'y' or boolean == 'yes':
-#         nome_giocatore = input('Indica il numero del giocatore: ')
-#         if nome_giocatore in list(range(1,n_giocatori+1)):
-#             for i in range(0,n_giocatori):
-#                 if giocatori[i].Giocatore.nome == str(nome_giocatore):
-#                     giocatori[i].Giocatore.stampa_cartelle()
+def domanda_di_stampa(n_giocatori,giocatori):
+    """
+    Tale metodo viene chiamato dal main ad ogni estrazione e permette di mostrare
+    le cartelle dei giocatori in gioco mediante il metodo 'mostra_cartelle' della
+    classe Giocatore().
+    
+    Input
+    -----
+    n_giocatori (int): indica il numero dei giocatori in gioco
+    giocatori (Giocatore[]): la lista degli oggetti Giocatore() lunga n_giocatori
+                              ogni oggetto rappresenta un giocatore in gioco
+                              
+    Output
+    ------
+    Vengono mostrate le cartelle dei giocatori se inserito in input 'yes' o 'y'
+    altrimenti viene stampato un messaggio e si continua il gioco
+    """
+    boolean = input('Vuoi vedere le cartelle dei giocatori? y/n : ')
+    if boolean == 'y' or boolean == 'yes':
+        for i in range(n_giocatori):
+            giocatori[i].mostra_cartelle()
+    else:
+        print('OK! Continuamo a giocare...')
+        
         
         
         

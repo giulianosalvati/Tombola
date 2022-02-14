@@ -137,12 +137,38 @@ class Giocatore:
              
             return vincite
         
-    def stampa_cartelle(self):
+    def mostra_cartelle(self):
+        """
+        Il metodo permette di mostrare le cartelle del giocatore nel loro stato al 
+        momento della chiamata del metodo. Se un numero è stato estratto
+        ed era presente nella cartella, viene mostrato con il simbolo '*', le caselle
+        della cartella che non contengono nulla (per convenzione del programma sono 0) 
+        vengono mostrati come spazi vuoti, mentre tutti gli altri numeri della cartella
+        che non sono stati estratti vengo visualizzati normalmente.
         
-        print(f"Cartelle del giocatore {self.nome}")
+        Input
+        -----
+        NaN
+        
+        Output
+        ------
+        Vengono stampate le cartelle del giocatore come descritto precedentemente
+        e il metodo non ha variabili di output
+        """
+        
+        print(f"\nCartelle del giocatore {self.nome} :\n")
         for i in range(0,len(self.cartelle)):
             print('Cartella '+str(i+1))
-            print(self.cartelle[i].cartella)
+            for r in range(3):
+                print('[ ',end='')
+                for c in range(9):
+                    if self.cartelle[i].elemento_cartella(r,c) == 0:
+                        print(' ',end=' ')
+                    elif self.cartelle[i].elemento_cartella(r,c) == -1:
+                        print('*',end=' ')
+                    else:
+                        print(int(self.cartelle[i].elemento_cartella(r,c)),end=' ')
+                print(']')
                 
                 
                 

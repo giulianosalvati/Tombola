@@ -51,7 +51,7 @@ N=90
 for i,n in zip(range(1,N+1), Tabellone.Tabellone(N)):
       numero_estratto = n
       vincite = check_estrazione_corrente(giocatori,n,vincite)
-      # Utils.domanda_di_stampa(n_giocatori,giocatori)
+      Utils.domanda_di_stampa(n_giocatori,giocatori)
       if vincite==6:
           print('\n------------------- FINE PARTITA ---------------------')
           sys.exit() 

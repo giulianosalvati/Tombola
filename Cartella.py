@@ -90,6 +90,28 @@ class Cartella:
         self.conta_colonne[index_colonna]-= 1
         self.conta_righe[index_riga] -= 1
     
+    def elemento_cartella(self,index_riga,index_colonna):
+        """
+        Il metodo restituisce l'elemento della cartella nella posizione 
+        [index_riga,ondex_colonna].
+    
+        Input
+        -----
+        index_riga (int): indice riga della posizione
+        index_colonna (int ): indice colonna della posizione
+        
+        Output
+        ------
+        elem (int): l'elemento della cartella nella posizione [index_riga,ondex_colonna]
+                    che puo essere:
+                        0 se a quella casella non è statto assegnato alcun valore
+                        -1 se il valore in quella casella è stato estratto ed era presente nella cartella
+                        oppure un valore da 1 a 90 
+                    
+        
+        """
+        elem = self.cartella[index_riga,index_colonna]
+        return elem
     def azzera_contatori(self):
         """
         Metodo che azzera i contatori su righe e colonne della cartella
@@ -127,7 +149,24 @@ class Cartella:
             return True
         
     def posizione_occupata(self,index_riga,index_colonna):
-        if self.cartella[index_riga][index_colonna] != 0:
+        """
+        Il metodo verifica se la casella in posizione [index_riga,ondex_colonna]
+        è vuota o contine un valore
+    
+        Input
+        -----
+        index_riga (int): indice riga della posizione
+        index_colonna (int ): indice colonna della posizione
+        
+        Output
+        ------
+        boolean : True se la casella contine un valore o lo conteneva (quindi contine un 
+                                                                       numero da 1 a 90 o -1)
+                  False se la casella è vuota (quindi contiene 0)
+                    
+        
+        """
+        if self.elemento_cartella(index_riga, index_colonna) != 0:
             return True 
         else:
             return False
