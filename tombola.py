@@ -22,14 +22,14 @@ def check_estrazione_corrente(giocatori,numero_estratto,vincite,cartellone):
     e che abbiano effettuato una vincita.   
          
     Input
-    -------
+    -----
     giocatori (Giocatore[]) : gli oggetti giocatori della tombola
     numero_estratto (int) : il valore estratto dal tabellone
     vincite (int): che mi dice a che vincita siamo arrivati 
     cartellone(Cartellone[]):  oggetto cartellone 
     
     Output 
-    -------
+    ------
     vincite (int): che mi dice a che vincita siamo arrivati 
              
     """   
@@ -56,9 +56,6 @@ vincite = 1
 giocatori = Banco.assegna_cartelle() 
 
 cartellone= Banco.inizializza_cartellone()
-
-
-
 
 N=90
 for i,n in zip(range(1,N+1), Tabellone.Tabellone(N)):
