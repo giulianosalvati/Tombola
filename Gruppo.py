@@ -39,12 +39,12 @@ class Gruppo:
         
         Input
         -----
-        None.
-
+        NaN
+        
         Output
-        -------
-        Gruppo di sei cartelle (matrici 3x9) di zeri
-
+        ------
+        NaN
+        
         """
         for i in range(0,6):
             cartella= Cartella.Cartella()
@@ -59,13 +59,12 @@ class Gruppo:
         
         Input
         -----
-        None.
-
+        NaN
+        
         Output
-        -------
-        None.
+        ------
+        NaN
 
-       
         """
         
         self.gruppo_cartelle[self.posizione_scelta].inserisci_numero(2,8,90)
@@ -75,15 +74,15 @@ class Gruppo:
        
         """
         Metodo che assegna 1 in posizioni tali da rispettare i vincoli sulle righe
-        
+       
         Input
         -----
-        None.
-
+        NaN
+        
         Output
-        -------
-        Gruppo di cartelle (matrici 3x6) costituite da 0 e 1, in particolare 5 uni su ciascuna riga
-
+        ------
+        NaN
+        
         """
         
         
@@ -117,8 +116,9 @@ class Gruppo:
         
         """
         
-        Il seguente metodo permette un controllo riga per riga, considerando i vincoli sulle colonne,
-        in maniera tale da effettuare, al fine di rispettare questi ultimi, uno swap tra opportuni posizionamenti.
+        Il seguente metodo permette un controllo riga per riga, considerando 
+        i vincoli sulle colonne, in maniera tale da effettuare, al fine di 
+        rispettare questi ultimi, uno swap tra opportuni posizionamenti.
 
         Input
         ----------
@@ -126,7 +126,7 @@ class Gruppo:
 
         Output
         -------
-        Gruppo di cartelle (matrici 3x6) costituite da 0 e 1, rispettante sia i vincoli sulle colonne che quelli sulle righe
+        NaN
 
         """
       
@@ -152,16 +152,17 @@ class Gruppo:
     def assegna_numeri(self):
         
         """
-        Collocazione dei numeri da 1 a 90 nelle posizioni individuate (sostituisco gli uni presenti nelle 6 cartelle)
+        Collocazione dei numeri da 1 a 90 nelle posizioni individuate 
+        (sostituisco gli uni presenti nelle 6 cartelle)
         
         Input
         -----
-        None.
-
+        NaN
+        
         Output
-        -------
-        None.
-
+        ------
+        NaN
+        
         """
         # Dopo aver trovato le posizioni assegno i numeri da 1 a 90, in maniera casuale nelle posizioni individuate nel gruppo_cartelle
                    
@@ -197,17 +198,17 @@ class Gruppo:
     def crea_gruppo(self):
         
         """
-        Implementazione del gruppo di 6 cartelle
+        Implementazione del gruppo di 6 cartelle (matrici 3x9) contenenti 
+        numeri da 1 a 90 che rispettano i vincoli forniti.
         
         Input
-        -------
-        Nan.
-       
-
+        -----
+        NaN
+        
         Output
-        -------
-        gruppo_cartelle: Lista di 6 cartelle (matrici 3x9) contenenti numeri da 1 a 90 che rispettano i vincoli forniti.
-
+        ------
+        NaN
+        
         """
         
         
@@ -226,11 +227,7 @@ class Gruppo:
         self.swap_posizioni(vincoli_colonne)
         
         self.assegna_numeri()
-        
-    
-                        
-
-        
+            
         
 def genera_gruppi(lista_cartelle):
      

@@ -50,6 +50,7 @@ class Giocatore:
     def controllo_numero(self,numero_estratto):
         """
         Verifico che il giocatore abbia o meno il numero estratto in una delle sue cartelle
+        ed in caso positivo viene posto uguale a -1 per 'segnarlo'
          
         Input:      
         ------

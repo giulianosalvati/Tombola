@@ -117,14 +117,6 @@ class Cartella:
         """
         Metodo che azzera i contatori su righe e colonne della cartella
         
-        Input
-        -----
-        NaN
-        
-        Output
-        ------
-        NaN
-        
         """
         self.conta_colonne = np.zeros(9)
         self.conta_righe = np.zeros(3)
@@ -251,12 +243,7 @@ class Cartella:
             return True
         else:
             return False
-        
-    # def somma_colonne(self):
-    #     somma_colonne = []
-    #     for colonna in range(0,9):
-    #         somma_colonne[colonna] += self.conta_colonne[colonna]
-    #     return somma_colonne
+ 
     
     
        

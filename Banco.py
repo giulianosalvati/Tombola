@@ -40,7 +40,7 @@ class Banco:
         Output
         ------
         giocatori (giocatore[]) : lista di oggetti giocatore aventi ognuno il numero
-        di cartelle richieste 
+                                  di cartelle richieste 
         
         """
         

@@ -23,16 +23,16 @@ class Cartellone:
     
     def genera_cartellone(self):
         """
-        Il metodo prevede la generazione di 6 cartelle speciali (matrici 3x5) che costituiscono il noto 'Cartellone' della tombola
-        contenente i numeri da 1 a 90 .
+        Il metodo prevede la generazione di 6 cartelle speciali (matrici 3x5) che 
+        costituiscono il noto 'Cartellone' della tombola contenente i numeri da 1 a 90 .
+        
         Input
         -----
         NaN
         
         Output
         ------
-        Cartellone([]): lista contenente 6 cartelle (matrici 3x5) contenenti in maniera ordinata numeri da 1 a 90
-
+        NaN
         """
         # Inizializzo le cartelle (matrici 3 x 5)
         for i in range(6):
@@ -105,7 +105,8 @@ class Cartellone:
     def check_estrazione_cartellone(self,numero_estratto):
        
         """
-        Verifico che il cartellone abbia o meno il numero estratto in una delle sue cartelle
+        Il metodo 'segnato' il numero estratto nella cartella del cartellone che 
+        lo contine, ponendolo a -1
          
         Input:      
         ------
@@ -134,7 +135,7 @@ class Cartellone:
         
         Output
         ------
-        Nan
+        vincite (int): variabile di ingresso aggiornata
 
 
         """
