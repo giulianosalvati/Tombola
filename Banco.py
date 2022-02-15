@@ -10,7 +10,7 @@ import Gruppo
 import Giocatore
 import random
 import Cartellone
-import numpy as np
+
 
 class Banco:
     """
@@ -67,20 +67,60 @@ class Banco:
     def inizializza_cartellone(self):
         """
         Il metodo inizializza la classe Cartellone all'oggetto cartellone gli assegna le corrispondenti cartelle
+        
         Input
         -----
         NaN
         
         Output
         ------
-        cartellone(object) : giocatore che possiede il cartellone
+        cartellone (Cartellone) : l'oggetto cartellone che si comporta come un Giocatore con 6 cartelle 'speciali'
         
         """
-        cartellone= Cartellone.Cartellone()
+        cartellone = Cartellone.Cartellone()
         cartellone.genera_cartellone()
         return cartellone
         
+                    
+def mostra_cartellone(cartellone):
+    """
+    Il metodo stampa il cartellone nel suo stato al momento della chiamata del 
+    metodo per cui stampa l'elemento della casella se non è stato estratto o al 
+    contrario se tale valore è stato estratto viene visualizzato con un asterisco
+    
+    Input
+    -----
+    cartellone( Cartellone) : l'oggetto cartellone che si comporta come un Giocatore con 6 cartelle 'speciali'
+    
+    Output
+    ------
+    stampa del cartellone
         
+    """
+    
+    print('\nCartellone :\n')
+        
+    for i in range(6):
+        if i%2==0:
+            for r in range(3):
+                print('[ ',end='')
+                for c in range(5):
+                    elemento = cartellone.elemento_cartella_cartellone(i,r,c)
+                    if elemento == -1:
+                        print('*',end=' ')
+                    else:
+                        print(int(elemento),end=' ')
+                print(']',end=' ')
+                print('[ ',end='')
+                for c in range(5):
+                    elemento = cartellone.elemento_cartella_cartellone(i+1,r,c)
+                    if elemento == -1:
+                        print('*',end=' ')
+                    else:
+                        print(int(elemento),end=' ')
+                print(']')
+            print('\n')
+                    
         
         
         

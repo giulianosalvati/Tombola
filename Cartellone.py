@@ -101,6 +101,7 @@ class Cartellone:
                         for index in range(len(dx)):
                             self.cartellone[i][riga][index]= dx[index] + (riga+i+1)*10
                             
+                        
     def check_estrazione_cartellone(self,numero_estratto):
        
         """
@@ -146,7 +147,7 @@ class Cartellone:
                 
                 if len(occorenze)==2: 
                     
-                    print('Tombola!')
+                    print('\nIl cartellone ha fatto Tombola!')
                     vincite = 6 
                     
                 else:
@@ -164,23 +165,46 @@ class Cartellone:
                         vincite = vincita_successiva
                         
                         if vincite==2 :
-                            print('Il cartellone ha fatto Ambo')
+                            print('\nIl cartellone ha fatto Ambo')
                             return vincite  
                         
                         elif vincite==3 :
-                            print('Il cartellone ha fatto Terna')
+                            print('\nIl cartellone ha fatto Terna')
                             return vincite  
                             
                         elif vincite==4 :
-                            print('Il cartellone ha fatto  Quaterna')
+                            print('\nIl cartellone ha fatto Quaterna')
                             return vincite  
                             
                         elif vincite==5 :
-                            print('Il cartellone ha fatto Cinquina')
+                            print('\nIl cartellone ha fatto Cinquina')
                             return vincite
              
             return vincite
         
+    def elemento_cartella_cartellone(self,i,index_riga,index_colonna):
+        """
+        Il metodo restituisce l'elemento della cartella i-esima del cartellone
+        nella posizione [index_riga,ondex_colonna].
+    
+        Input
+        -----
+        i (int) : indice della cartella del cartellone
+        index_riga (int): indice riga della posizione
+        index_colonna (int ): indice colonna della posizione
+        
+        Output
+        ------
+        elem (int): l'elemento della cartella nella posizione [index_riga,ondex_colonna]
+        che puo essere:
+            -1 se il valore in quella casella è stato estratto
+            oppure un valore da 1 a 90 
+                        
+            
+        """
+        elem = self.cartellone[i][index_riga,index_colonna]
+        return elem
+            
     
                  
                         

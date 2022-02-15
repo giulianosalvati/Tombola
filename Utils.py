@@ -9,7 +9,7 @@ Created on Mon Jan 31 11:03:17 2022
 import argparse
 
 import Giocatore
-
+import Banco
 
 
 
@@ -90,7 +90,7 @@ def check_lista_cartelle(n_giocatori, lista_cartelle):
     return lista_cartelle
       
 
-def domanda_di_stampa(n_giocatori,giocatori):
+def domanda_di_stampa(n_giocatori,giocatori,cartellone):
     """
     Tale metodo viene chiamato dal main ad ogni estrazione e permette di mostrare
     le cartelle dei giocatori in gioco mediante il metodo 'mostra_cartelle' della
@@ -107,10 +107,11 @@ def domanda_di_stampa(n_giocatori,giocatori):
     Vengono mostrate le cartelle dei giocatori se inserito in input 'yes' o 'y'
     altrimenti viene stampato un messaggio e si continua il gioco
     """
-    boolean = input('Vuoi vedere le cartelle dei giocatori? y/n : ')
+    boolean = input('Vuoi vedere le cartelle dei giocatori e quelle del cartellone? y/n : ')
     if boolean == 'y' or boolean == 'yes':
         for i in range(n_giocatori):
             giocatori[i].mostra_cartelle()
+        Banco.mostra_cartellone(cartellone)
     else:
         print('OK! Continuamo a giocare...')
         
