@@ -147,7 +147,7 @@ class Cartellone:
                 
                 if len(occorenze)==2: 
                     
-                    print('\nIl cartellone ha fatto Tombola!')
+                    print('\nIl cartellone ha fatto tombola!')
                     vincite = 6 
                     
                 else:
@@ -165,19 +165,19 @@ class Cartellone:
                         vincite = vincita_successiva
                         
                         if vincite==2 :
-                            print('\nIl cartellone ha fatto Ambo')
+                            print('\nIl cartellone ha fatto ambo')
                             return vincite  
                         
                         elif vincite==3 :
-                            print('\nIl cartellone ha fatto Terna')
+                            print('\nIl cartellone ha fatto terna')
                             return vincite  
                             
                         elif vincite==4 :
-                            print('\nIl cartellone ha fatto Quaterna')
+                            print('\nIl cartellone ha fatto quaterna')
                             return vincite  
                             
                         elif vincite==5 :
-                            print('\nIl cartellone ha fatto Cinquina')
+                            print('\nIl cartellone ha fatto cinquina')
                             return vincite
              
             return vincite

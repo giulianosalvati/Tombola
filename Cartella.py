@@ -201,7 +201,7 @@ class Cartella:
     
         Input
         -----
-        index_colonna (int ): indice colonna idi riferimento
+        index_colonna (int ): indice colonna da estrarre
         
         Output
         ------
@@ -212,6 +212,24 @@ class Cartella:
         
         colonna_selezionata = self.cartella[:,index_colonna]
         return colonna_selezionata
+    
+    def estrai_riga(self, index_riga):
+        """
+        Il metodo estrae dalla cartella la riga di indice index_riga
+    
+        Input
+        -----
+        index_riga (int ): indice riga da estrarre
+        
+        Output
+        ------
+        riga_selezionata (int[]): corrisponde alla lista degli elementi della riga
+                                     di indice index_riga
+        
+        """
+        
+        riga_selezionata = self.cartella[index_riga,:]
+        return riga_selezionata
         
     def numero_gia_estratto(self,index_riga,index_colonna):
         """
@@ -234,9 +252,11 @@ class Cartella:
         else:
             return False
         
-        
-    
-        
+    # def somma_colonne(self):
+    #     somma_colonne = []
+    #     for colonna in range(0,9):
+    #         somma_colonne[colonna] += self.conta_colonne[colonna]
+    #     return somma_colonne
     
     
        

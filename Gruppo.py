@@ -133,7 +133,7 @@ class Gruppo:
         
         for i in range(0,6): 
             for r in range(0,3):
-                riga= self.gruppo_cartelle[i].cartella[r]
+                riga = self.gruppo_cartelle[i].estrai_riga(r)
                 indici_occupati= np.argwhere(riga==1) #trovo indici delle caselle occupate su quella riga
                 for k in indici_occupati:
                     somma_colonne=np.zeros(9)
@@ -147,8 +147,6 @@ class Gruppo:
                         swap=indici_vuoti[colonna_min]
                         self.gruppo_cartelle[i].elimina_numero(r,k)
                         self.gruppo_cartelle[i].inserisci_numero(r,swap,1) #applico lo swap e aggiorno i contatori
-                        
-        
         
         
     def assegna_numeri(self):
