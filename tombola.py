@@ -42,8 +42,8 @@ def check_estrazione_corrente(giocatori,numero_estratto,vincite,cartellone):
         vincite= giocatori[i].controllo_vincite(vincite)
     
     
-    cartellone.check_estrazione_cartellone(numero_estratto)
-    vincite= cartellone.check_vincite_cartellone(vincite)
+    index_cartella_numero_estratto=cartellone.check_estrazione_cartellone(numero_estratto) # In uscita ho l'indice della cartella del cartellone che contine il numero estratto
+    vincite= cartellone.check_vincite_cartellone(vincite,index_cartella_numero_estratto)
         
         
         

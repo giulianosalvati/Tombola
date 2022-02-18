@@ -114,7 +114,7 @@ class Cartellone:
         
         Output
         ------
-        Nan
+        i (int): indice della cartella del cartellone che contiene il numero estratto
               
               
         """   
@@ -124,14 +124,17 @@ class Cartellone:
                 for index in range(5):
                     if self.cartellone[i][riga][index]== numero_estratto:
                         self.cartellone[i][riga][index]= -1
-                        
-    def check_vincite_cartellone(self,vincite):
+                        return i
+    def check_vincite_cartellone(self,vincite,index_cartella):
         """
-        Verifico che il cartellone abbia o meno effettuato una vincita.
+        Verifico che il cartellone abbia o meno effettuato una vincita, nella
+        cartella che conteneva l'ultimo numero estratto
          
         Input:      
         ------
         vincite (int): intero corrispondente  alla vincita alla quale si è arrivati 
+        index_cartella (int): indice della cartella del cartellone che conteneva il numero estratto
+                              e quindi l'unica per cui è necessario il check delle vincite nel cartellone
         
         Output
         ------
@@ -139,49 +142,44 @@ class Cartellone:
 
 
         """
-         
-        for i in range(6):
-           
-            if vincite==5:                              # Se è gia stata vinta la cinquina
-                # vedo se si è verificata la tombola: cioe i valori nella cartella sono solo 0 e -1
-                occorenze = np.unique(self.cartellone[i])
+        if vincite==5:   # Se è gia stata vinta la cinquina
+               # vedo se si è verificata la tombola: cioe i valori nella cartella 
+               # sono solo 0 e -1                           
+            occorenze = np.unique(self.cartellone[index_cartella])
                 
-                if len(occorenze)==2: 
+            if len(occorenze)==2: 
+                print('\nIl cartellone ha fatto tombola!')
+                vincite = 6 
                     
-                    print('\nIl cartellone ha fatto tombola!')
-                    vincite = 6 
-                    
-                else:
-                    
-                    return vincite
-                
             else:
-                for riga in range(0,3):
-                    contatore=0
-                    vincita_successiva = vincite+1      
-                    for colonna in range(0,5):
-                        if self.cartellone[i][riga,colonna]==-1:
-                            contatore=contatore+1
-                    if contatore == vincita_successiva:
-                        vincite = vincita_successiva
+                    
+                return vincite
+                
+        else:
+            for riga in range(0,3):
+                contatore=0
+                vincita_successiva = vincite+1      
+                for colonna in range(0,5):
+                    if self.cartellone[index_cartella][riga,colonna]==-1:
+                        contatore=contatore+1
+                if contatore == vincita_successiva:
+                    vincite = vincita_successiva
+                    if vincite==2 :
+                        print('\nIl cartellone ha fatto ambo')
+                        return vincite  
                         
-                        if vincite==2 :
-                            print('\nIl cartellone ha fatto ambo')
-                            return vincite  
-                        
-                        elif vincite==3 :
-                            print('\nIl cartellone ha fatto terna')
-                            return vincite  
+                    elif vincite==3 :
+                        print('\nIl cartellone ha fatto terna')
+                        return vincite  
                             
-                        elif vincite==4 :
-                            print('\nIl cartellone ha fatto quaterna')
-                            return vincite  
-                            
-                        elif vincite==5 :
-                            print('\nIl cartellone ha fatto cinquina')
-                            return vincite
-             
-            return vincite
+                    elif vincite==4 :
+                        print('\nIl cartellone ha fatto quaterna')
+                        return vincite  
+                    
+                    elif vincite==5 :
+                        print('\nIl cartellone ha fatto cinquina')
+                        return vincite      
+        return vincite
         
     def elemento_cartella_cartellone(self,i,index_riga,index_colonna):
         """
