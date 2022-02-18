@@ -108,7 +108,7 @@ class Cartellone:
     def check_estrazione_cartellone(self,numero_estratto):
        
         """
-        Il metodo 'segnato' il numero estratto nella cartella del cartellone che 
+        Il metodo 'segna' il numero estratto nella cartella del cartellone che 
         lo contine, ponendolo a -1
          
         Input:      
@@ -117,7 +117,8 @@ class Cartellone:
         
         Output
         ------
-        index_cartella (int): indice della cartella del cartellone che contiene il numero estratto
+        index_cartella (int): indice della cartella del cartellone che contiene 
+                              il numero estratto
               
               
         """   
@@ -157,8 +158,9 @@ class Cartellone:
         Input:      
         ------
         vincite (int): intero corrispondente  alla vincita alla quale si è arrivati 
-        index_cartella (int): indice della cartella del cartellone che conteneva il numero estratto
-                              e quindi l'unica per cui è necessario il check delle vincite nel cartellone
+        index_cartella (int): indice della cartella del cartellone che conteneva il 
+                              numero estratto e quindi l'unica per cui è necessario 
+                              il check delle vincite nel cartellone
         
         Output
         ------
