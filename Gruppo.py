@@ -111,6 +111,25 @@ class Gruppo:
                 r=random.randrange(3)
             self.gruppo_cartelle[i].inserisci_numero(r,j,1)
         
+                        
+    def somma_colonneGruppo(self):
+        """
+        Il seguente metodo conta la somma degli elementi presenti su ciascuna colonna del gruppo_cartelle
+
+        Input
+        ------
+        Nan
+        
+        Output
+        ------
+        somma_colonne(array[]) è un vettore che contiene il numero totale delle caselle occupate per ciascuna colonna del gruppo_cartelle
+        """
+        somma_colonne=np.zeros(9)
+        for c in range(0,6):
+            for colonna in range(0,9):
+                somma_colonne[colonna] += self.gruppo_cartelle[c].conta_colonne[colonna] 
+        return somma_colonne
+    
     
     def swap_posizioni(self,vincoli):
         
@@ -136,10 +155,7 @@ class Gruppo:
                 riga = self.gruppo_cartelle[i].estrai_riga(r)
                 indici_occupati= np.argwhere(riga==1) #trovo indici delle caselle occupate su quella riga
                 for k in indici_occupati:
-                    somma_colonne=np.zeros(9)
-                    for c in range(0,6):
-                        for colonna in range(0,9):
-                            somma_colonne[colonna] += self.gruppo_cartelle[c].conta_colonne[colonna] # è un vettore che contiene il numero totale delle caselle occupate per ciascuna colonna del gruppo_cartelle
+                    somma_colonne=self.somma_colonneGruppo()
                     if(somma_colonne[k]>vincoli[k] and self.gruppo_cartelle[i].conta_colonne[k]>1):
                         indici_vuoti=np.argwhere(riga==0)
                         differenza= vincoli[indici_vuoti]-somma_colonne[indici_vuoti]
@@ -147,7 +163,7 @@ class Gruppo:
                         swap=indici_vuoti[colonna_min]
                         self.gruppo_cartelle[i].elimina_numero(r,k)
                         self.gruppo_cartelle[i].inserisci_numero(r,swap,1) #applico lo swap e aggiorno i contatori
-        
+
         
     def assegna_numeri(self):
         
