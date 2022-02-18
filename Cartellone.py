@@ -6,6 +6,7 @@ Created on Mon Feb 14 16:24:14 2022
 @author: giuliano
 """
 import numpy as np
+import math
 
 class Cartellone:
     """
@@ -19,7 +20,8 @@ class Cartellone:
     def __init__(self,cartellone=None):
       
         self.cartellone=[]
-    
+ 
+        
     
     def genera_cartellone(self):
         """
@@ -40,6 +42,7 @@ class Cartellone:
             cartellas=np.zeros((3,5))
             self.cartellone.append(cartellas)  
         
+           
         #  Esplicito le prime righe rispettivamente della parte sx e dx del cartellone 
         #(corrispondenti alle prime righe delle prime due cartelle )
         sx=list((range(1,6)))
@@ -73,7 +76,7 @@ class Cartellone:
                          
                         for index in range(len(sx)):
                        
-                            self.cartellone[i][riga][index]= sx[index]+ (riga+ i+ 2)*10
+                            self.cartellone[i][riga][index] = sx[index]+ (riga+ i+ 2)*10
                      
                     
                  
@@ -114,17 +117,38 @@ class Cartellone:
         
         Output
         ------
-        i (int): indice della cartella del cartellone che contiene il numero estratto
+        index_cartella (int): indice della cartella del cartellone che contiene il numero estratto
               
               
         """   
-
-        for i in range(6):
-            for riga in range (3):
-                for index in range(5):
-                    if self.cartellone[i][riga][index]== numero_estratto:
-                        self.cartellone[i][riga][index]= -1
-                        return i
+        decina_numero = numero_estratto//10
+        riga_cartella=math.trunc(decina_numero/3) # Pensando al cartellone reale quindi formato da 3x2 cartelle, 
+                                                    # questo valore indica la riga in cui è posizionata la cartella
+                                                    # rispetto al cartellone
+        unita_numero = numero_estratto%10
+        sx=list((range(1,6)))
+        if riga_cartella == 0:
+            if unita_numero in sx:
+                index_cartella = 0
+            else:
+                index_cartella = 1
+        if riga_cartella == 1:
+           if unita_numero in sx:
+               index_cartella = 2
+           else:
+               index_cartella = 3
+        if riga_cartella == 2:
+            if unita_numero in sx:
+                index_cartella = 4
+            else:
+                index_cartella = 5
+                
+        for riga in range (3):
+            for colonna in range(5):
+                if self.cartellone[index_cartella][riga][colonna]== numero_estratto:
+                    self.cartellone[index_cartella][riga][colonna]= -1
+        return index_cartella
+    
     def check_vincite_cartellone(self,vincite,index_cartella):
         """
         Verifico che il cartellone abbia o meno effettuato una vincita, nella
