@@ -186,6 +186,7 @@ class Gruppo:
         estratti=[]
         for i in range(0,6):
             self.gruppo_cartelle[i].azzera_contatori()
+            self.gruppo_cartelle[self.posizione_scelta].aggiorna_conteggio(2,8) #aggiorno il contatore per 90 che non viene inserito in questa fase
             colonna= self.gruppo_cartelle[i].estrai_colonna(0)
             # Individuo sulla colonna della singola cartella quali sono le posizioni occupate a cui devo assegnare un numero da 1 a 9
             pos_occ=np.argwhere(colonna==1) 
