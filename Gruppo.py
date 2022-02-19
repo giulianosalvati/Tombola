@@ -49,6 +49,21 @@ class Gruppo:
         for i in range(0,6):
             cartella= Cartella.Cartella()
             self.gruppo_cartelle.append(cartella)
+            
+    def svuota_gruppo(self):
+        """
+        Metodo che azzera tutti gli elementi delle cartelle del gruppo_cartelle e i contatori
+
+        Input
+        -------
+        Nan
+        Output
+        ------
+        NaN
+        
+        """
+        for i in range(0,6):
+            self.gruppo_cartelle[i].svuota_cartella()
     
     
     def posiziona_90(self):
