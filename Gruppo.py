@@ -145,6 +145,26 @@ class Gruppo:
                 somma_colonne[colonna] += self.gruppo_cartelle[c].conta_colonne[colonna] 
         return somma_colonne
     
+    def controllo_vincoli_colonne(self, vincoli):
+        """
+        Metodo che controlla se sono rispettati i vincoli su ciascuna colonna del gruppo_cartelle
+
+        Input
+        -----
+        vincoli (array[]): lista contenente 9 elementi ciascuno corrispondente al numero massimo di elementi di ciascuna colonna del gruppo
+
+        Output
+        ------
+        boolean : indica se i vincoli su ciascuna colonna del gruppo_cartelle sono rispettati
+                  -True se sono rispettati, -False altrimenti
+
+        """
+        somma_colonne=self.somma_colonneGruppo()
+        if np.array_equal(somma_colonne, vincoli): #array_equal restituisce True se i due vettori che riceve in ingresso sono uguali, False altrimenti
+           return True
+        else:
+            return False
+    
     
     def swap_posizioni(self,vincoli):
         
@@ -167,6 +187,8 @@ class Gruppo:
         
         for i in range(0,6): 
             for r in range(0,3):
+                if self.controllo_vincoli_colonne(vincoli): #se restituisce True il ciclo può terminare perchè vuol dire che i vincoli sono già rispettati e quindi non sono più necessari altri swap
+                    break
                 riga = self.gruppo_cartelle[i].estrai_riga(r)
                 indici_occupati= np.argwhere(riga==1) #trovo indici delle caselle occupate su quella riga
                 for k in indici_occupati:
@@ -246,17 +268,25 @@ class Gruppo:
         
         self.inizializza_cartelle()
         
-        self.posiziona_90()
-
-        self.assegna_posizioni()
-    
         #creo un vettore rappresentativo dei vincoli su ogni colonna del gruppo_cartelle 
         #(nella prima colonna ci dovranno essere 9 caselle occupate per inserire i numeri da 1 a 9, dalla seconda alla punultima le caselle 
         # da occupare sono 10, nell'ultima 11 per inserire i numeri da 80 a 90)
         
         vincoli_colonne=np.array([9,10,10,10,10,10,10,10,11])
 
-        self.swap_posizioni(vincoli_colonne)
+        controllo_superato=False
+        
+        while not controllo_superato: #il ciclo termina solo quando effettivamente il gruppo rispetta i vincoli
+            
+            self.svuota_gruppo()
+            
+            self.posiziona_90()
+    
+            self.assegna_posizioni()
+    
+            self.swap_posizioni(vincoli_colonne)
+            
+            controllo_superato=self.controllo_vincoli_colonne(vincoli_colonne)
         
         self.assegna_numeri()
             
