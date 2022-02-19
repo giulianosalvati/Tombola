@@ -138,7 +138,7 @@ class Cartellone:
                index_cartella = 2
            else:
                index_cartella = 3
-        if riga_cartella == 2:
+        if riga_cartella == 2 or riga_cartella==3:
             if unita_numero in sx:
                 index_cartella = 4
             else:
