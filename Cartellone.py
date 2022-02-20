@@ -122,33 +122,13 @@ class Cartellone:
               
               
         """   
-        decina_numero = numero_estratto//10
-        riga_cartella=math.trunc(decina_numero/3) # Pensando al cartellone reale quindi formato da 3x2 cartelle, 
-                                                    # questo valore indica la riga in cui è posizionata la cartella
-                                                    # rispetto al cartellone
-        unita_numero = numero_estratto%10
-        sx=list((range(1,6)))
-        if riga_cartella == 0:
-            if unita_numero in sx:
-                index_cartella = 0
-            else:
-                index_cartella = 1
-        if riga_cartella == 1:
-           if unita_numero in sx:
-               index_cartella = 2
-           else:
-               index_cartella = 3
-        if riga_cartella == 2 or riga_cartella==3:
-            if unita_numero in sx:
-                index_cartella = 4
-            else:
-                index_cartella = 5
-                
-        for riga in range (3):
-            for colonna in range(5):
-                if self.cartellone[index_cartella][riga][colonna]== numero_estratto:
-                    self.cartellone[index_cartella][riga][colonna]= -1
-        return index_cartella
+        for index in range(6):
+            for riga in range (3):
+                for colonna in range(5):
+                    if self.cartellone[index][riga][colonna] == numero_estratto:
+                        self.cartellone[index][riga][colonna] = -1
+                        index_cartella = index
+                        return index_cartella
     
     def check_vincite_cartellone(self,vincite,index_cartella):
         """
