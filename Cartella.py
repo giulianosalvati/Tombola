@@ -121,16 +121,6 @@ class Cartella:
         """
         self.conta_colonne = np.zeros(9)
         self.conta_righe = np.zeros(3)
-     
-    def svuota_cartella(self):
-        """
-        Metodo che azzera tutti gli elementi della cartella e azzera i contatori
-
-        """
-        for index_riga in range(0,3):
-           for index_colonna in range(0,9):         
-                self.cartella[index_riga, index_colonna] = 0
-        self.azzera_contatori()
          
         
     def verifica_vincolo_righe(self,index_riga):
