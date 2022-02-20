@@ -150,10 +150,10 @@ class Cartellone:
         """
         if vincite==5:   # Se è gia stata vinta la cinquina
                # vedo se si è verificata la tombola: cioe i valori nella cartella 
-               # sono solo 0 e -1                           
+               # sono solo -1                           
             occorenze = np.unique(self.cartellone[index_cartella])
                 
-            if len(occorenze)==2: 
+            if len(occorenze)==1:  
                 print('\nIl cartellone ha fatto tombola!')
                 vincite = 6 
                     
