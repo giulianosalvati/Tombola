@@ -95,7 +95,7 @@ class Giocatore:
               
         """   
     
-        for i in range(0,len(self.cartelle)):
+        for i in range(self.num_cartelle):
            
             if vincite==5:                              # Se è gia stata vinta la cinquina
                 # vedo se si è verificata la tombola: cioe i valori nella cartella sono solo 0 e -1
@@ -136,7 +136,7 @@ class Giocatore:
                             print('Cinquina')
                             return vincite
              
-            return vincite
+        return vincite
         
     def mostra_cartelle(self):
         """
