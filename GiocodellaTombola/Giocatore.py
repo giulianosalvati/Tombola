@@ -136,7 +136,7 @@ class Giocatore:
                             print('Cinquina')
                             return vincite
              
-            return vincite
+        return vincite
         
     def mostra_cartelle(self):
         """

@@ -5,12 +5,11 @@ Created on Mon Jan 31 11:41:28 2022
 
 @author: mariaelenacontini
 """
-
 import Utils
 import Banco
 import Tabellone
-import sys
 import Cartellone
+import sys
 
 args = Utils.initialize_parser()
 n_giocatori = Utils.check_numero_giocatori(args.giocatori)
