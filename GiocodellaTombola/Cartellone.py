@@ -163,7 +163,7 @@ class Cartellone:
                 
         else:
             for riga in range(0,3):
-                contatore=0
+                contatore=0 # Contatore che conta gli elementi estratti (= -1) sulla riga
                 vincita_successiva = vincite+1      
                 for colonna in range(0,5):
                     if self.cartellone[index_cartella][riga,colonna]==-1:

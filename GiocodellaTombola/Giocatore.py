@@ -97,8 +97,9 @@ class Giocatore:
     
         for i in range(self.num_cartelle):
            
-            if vincite==5:                              # Se è gia stata vinta la cinquina
-                # vedo se si è verificata la tombola: cioe i valori nella cartella sono solo 0 e -1
+            if vincite==5:           # Se è gia stata vinta la cinquina
+                                    # vedo se si è verificata la tombola: 
+                                    # cioe i valori nella cartella sono solo 0 e -1
                 occorenze = np.unique(self.cartelle[i].cartella)
                 
                 if len(occorenze)==2: 

@@ -23,7 +23,8 @@ class Gruppo:
 
     """
     
-    # Variabile globale che corrisponde alla cartella scelta in maniera soggettiva a cui verrà assegnato il numero 90 rispettando i vincoli
+    # Variabile globale che corrisponde alla cartella scelta in maniera soggettiva 
+    # a cui verrà assegnato il numero 90 rispettando i vincoli
     posizione_scelta=5 
     
     def __init__(self,gruppo_cartelle=None,cartellone=None):
@@ -292,7 +293,8 @@ def genera_gruppi(lista_cartelle):
           
           
     lista_cartelle_richieste=[]
-    conteggio= math.ceil(sum(lista_cartelle)/6)
+    conteggio= math.ceil(sum(lista_cartelle)/6) # Mi dice il numero di gruppi di 
+                                                # cartelle di cui ho bisogno
     for i in range(0,conteggio):
         g=Gruppo()
         g.crea_gruppo()

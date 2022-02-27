@@ -64,16 +64,21 @@ def check_lista_cartelle(n_giocatori, lista_cartelle):
     oppure
     un messaggio e termina il programma
     """
-    if len(lista_cartelle)!=n_giocatori:
+    if len(lista_cartelle)!=n_giocatori:    # se la lunghezza della lista di cartelle inserita 
+                                            # NON corrisponde al numero di giocatori 
         print('\n- ERRORE -  Vi sono giocatori a cui non è stata assegnata alcuna cartella\n')
+        
         if len(lista_cartelle)<n_giocatori:
-            sc=n_giocatori-len(lista_cartelle)
+            sc=n_giocatori-len(lista_cartelle) # valore che mi dice a quanti 
+                                                # giocatori mancano cartelle
             if sc == 1:
                  print(' *** Mancano cartelle a ' +str(sc)+' giocatore! ***\n')
             else:
                  print(' *** Mancano cartelle a ' +str(sc)+' giocatori! ***\n')
+        
         else:
-            sc=len(lista_cartelle)-n_giocatori
+            sc=len(lista_cartelle)-n_giocatori  # valore che mi dice quanti giocatori
+                                                # mancano in base alle cartelle richieste
             if sc == 1:
                 print(' *** Hai assegnato troppe cartelle, manca ' +str(sc)+' giocatore! ***\n')
             else:
@@ -108,7 +113,8 @@ def domanda_di_stampa(n_giocatori,giocatori,cartellone):
     altrimenti viene stampato un messaggio e si continua il gioco
     """
     boolean = input('Vuoi vedere le cartelle dei giocatori e quelle del cartellone? y/n : ')
-    if boolean == 'y' or boolean == 'yes':
+    
+    if boolean == 'y' or boolean == 'yes': 
         for i in range(n_giocatori):
             giocatori[i].mostra_cartelle()
         Banco.mostra_cartellone(cartellone)
