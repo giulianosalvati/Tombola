@@ -22,6 +22,8 @@ Un gruppo di 6 cartelle verifica le seguenti condizioni:
 - quando presente in una cartella, il numero 90 occupa sempre la casella nell'angolo in basso a destra (riga 3, colonna 9)
 - ogni numero da 1 a 90 deve essere presente su una e una sola cartella
 
+È stata implementata una funzionalità aggiuntiva per cui anche il cartellone, con le sue 6 cartelle standard (diverse da quelle implementate per i giocatori descritte in precendeza), gioca a tombola come fosse un giocatore fisso. Quindi anche il cartellone può effettuare le vincite.
+
 # Istruzioni per giocare
 
 Per giocare digitare da linea di comando:
