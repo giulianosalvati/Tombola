@@ -8,7 +8,7 @@ Created on Tue Feb  1 11:37:39 2022
 
 
 import numpy as np
-import Cartella
+
 
 class Giocatore:
         
