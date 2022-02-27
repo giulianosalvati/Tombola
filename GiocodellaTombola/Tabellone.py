@@ -8,11 +8,10 @@ Created on Fri Feb  4 17:22:02 2022
 
 
 import random
-import numpy as np
 
 class Tabellone(object):
     """
-    Classe Tabellone si occupa dell'estrazione dei numeri, in maniera casuale, da 1 a 10
+    Classe Tabellone si occupa dell'estrazione dei numeri, in maniera casuale, da 1 a 90
      Attributi della classe:
          - n : numero estratto(int)
          - extracted: lista inizializzata vuota e successivamente contente i numeri estratti

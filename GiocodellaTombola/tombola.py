@@ -8,7 +8,6 @@ Created on Mon Jan 31 11:41:28 2022
 import Utils
 import Banco
 import Tabellone
-import Cartellone
 import sys
 
 args = Utils.initialize_parser()

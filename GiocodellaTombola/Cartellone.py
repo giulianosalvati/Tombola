@@ -6,7 +6,6 @@ Created on Mon Feb 14 16:24:14 2022
 @author: giuliano
 """
 import numpy as np
-import math
 
 class Cartellone:
     """
