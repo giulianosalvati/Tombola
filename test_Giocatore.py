@@ -8,15 +8,28 @@ Created on Sat Feb 26 11:15:07 2022
 
 import unittest
 import numpy as np
-from GiocodellaTombola import Cartella
 from GiocodellaTombola import Giocatore
+
+class CartellaMock:
+    
+    def __init__(self,cartella=None,conta_colonne=None,conta_righe=None):
+        
+        self.cartella = np.zeros((3,9))
+        self.conta_colonne = np.zeros(9) 
+        self.conta_righe = np.zeros(3) 
+        
+    def numero_gia_estratto(self,index_riga,index_colonna):
+        if self.cartella[index_riga][index_colonna] == -1:
+            return True
+        else:
+            return False
 
 
 class TestGiocatore(unittest.TestCase):
    
-    cartella1=Cartella.Cartella()
+    cartella1=CartellaMock()
     cartella1.cartella= np.array([[0,10,21,38,42,0,0,0,83],[0,0,25,32,49,0,0,79,82],[1,18,0,37,0,59,61,0,0]])
-    cartella2= Cartella.Cartella()
+    cartella2= CartellaMock()
     cartella2.cartella= np.array([[0,16,24,34,48,0,0,0,85],[2,0,0,0,47,56,68,0,86],[0,14,23,0,40,0,0,70,89]])
     
     def setUp(self):
