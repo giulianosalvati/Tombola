@@ -32,9 +32,9 @@ Per giocare digitare da linea di comando:
 
 Ad esempio il comando:
 
-> `python tombola.py -g 3 -n 3 6 4`
+> `python tombola.py -g 3 -n 3 2 4`
 
-Avvia il gioco con 3 giocatori che hanno rispettivamente 3, 6 e 4 cartelle.
+Avvia il gioco con 3 giocatori che hanno rispettivamente 3, 2 e 4 cartelle.
 
 Per elencare tutte le opzioni possibili digitare:
 
