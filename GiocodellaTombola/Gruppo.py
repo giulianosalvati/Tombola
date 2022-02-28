@@ -27,10 +27,9 @@ class Gruppo:
     # a cui verrà assegnato il numero 90 rispettando i vincoli
     posizione_scelta=5 
     
-    def __init__(self,gruppo_cartelle=None,cartellone=None):
+    def __init__(self,gruppo_cartelle=None):
         
         self.gruppo_cartelle=[]
-        self.cartellone=[]
         
    
     def inizializza_cartelle(self):
