@@ -19,9 +19,7 @@ class Cartellone:
     def __init__(self,cartellone=None):
       
         self.cartellone=[]
- 
-        
-    
+          
     def genera_cartellone(self):
         """
         Il metodo prevede la generazione di 6 cartelle speciali (matrici 3x5) che 
@@ -40,8 +38,7 @@ class Cartellone:
             
             cartellas=np.zeros((3,5))
             self.cartellone.append(cartellas)  
-        
-           
+               
         #  Esplicito le prime righe rispettivamente della parte sx e dx del cartellone 
         #(corrispondenti alle prime righe delle prime due cartelle )
         sx=list((range(1,6)))
@@ -76,9 +73,7 @@ class Cartellone:
                         for index in range(len(sx)):
                        
                             self.cartellone[i][riga][index] = sx[index]+ (riga+ i+ 2)*10
-                     
-                    
-                 
+                                                          
             #Altriemnti se i è dispari, si fa riferimento alle cartelle situate nella parte sx del cartellone
             else:
                        
@@ -89,8 +84,7 @@ class Cartellone:
                     for riga in range(3):
                         for index in range(len(dx)):
                             self.cartellone[i][riga][index]= dx[index] + riga*10
-                 
-                  
+                                   
                 elif i == 3:
                      # (cartella 3---> 36....40; 46.....50.;56....60)
                     for riga in range(3):
@@ -117,10 +111,9 @@ class Cartellone:
         Output
         ------
         index_cartella (int): indice della cartella del cartellone che contiene 
-                              il numero estratto
-              
-              
+                              il numero estratto            
         """   
+        
         for index in range(6):
             for riga in range (3):
                 for colonna in range(5):
@@ -144,9 +137,8 @@ class Cartellone:
         Output
         ------
         vincite (int): variabile di ingresso aggiornata
-
-
         """
+       
         if vincite==5:   # Se è gia stata vinta la cinquina
                # vedo se si è verificata la tombola: cioe i valori nella cartella 
                # sono solo -1                           
@@ -203,9 +195,8 @@ class Cartellone:
         che puo essere:
             -1 se il valore in quella casella è stato estratto
             oppure un valore da 1 a 90 
-                        
-            
         """
+       
         elem = self.cartellone[i][index_riga,index_colonna]
         return elem
             

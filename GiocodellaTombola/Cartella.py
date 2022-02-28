@@ -21,7 +21,7 @@ class Cartella:
             - conta_righe è un vettore lungo 3 inizializzato come vettore di zeri. Analogo del 
             contatore precedente ma riferito alle righe
     """
-    
+ 
     def __init__(self,cartella=None,conta_colonne=None,conta_righe=None):
         
         self.cartella = np.zeros((3,9))
@@ -46,8 +46,7 @@ class Cartella:
         """
         
         self.conta_colonne[index_colonna] += 1
-        self.conta_righe[index_riga] += 1
-    
+        self.conta_righe[index_riga] += 1    
     
     def inserisci_numero(self,index_riga,index_colonna,numero):
         
@@ -64,14 +63,13 @@ class Cartella:
         
         Output
         ------
-        Nan
-        
+        Nan      
         """
+       
         self.cartella[index_riga,index_colonna] = numero
         self.aggiorna_conteggio(index_riga, index_colonna)
     
-    def elimina_numero(self,index_riga,index_colonna):
-        
+    def elimina_numero(self,index_riga,index_colonna):        
         """
         Tolgo dalla cartella il valore nella posizione [index_riga ,index_colonna] ponendolo
         a zero ed aggiorno i contatori su righe e colonne della cartella 
@@ -85,8 +83,8 @@ class Cartella:
         Output
         ------
         Nan
-        
         """
+        
         self.cartella[index_riga,index_colonna] = 0
         self.conta_colonne[index_colonna]-= 1
         self.conta_righe[index_riga] -= 1
@@ -107,18 +105,17 @@ class Cartella:
                     che puo essere:
                         0 se a quella casella non è statto assegnato alcun valore
                         -1 se il valore in quella casella è stato estratto ed era presente nella cartella
-                        oppure un valore da 1 a 90 
-                    
-        
+                        oppure un valore da 1 a 90     
         """
+        
         elem = self.cartella[index_riga,index_colonna]
         return elem
     
     def azzera_contatori(self):
         """
-        Metodo che azzera i contatori su righe e colonne della cartella
-        
+        Metodo che azzera i contatori su righe e colonne della cartella       
         """
+        
         self.conta_colonne = np.zeros(9)
         self.conta_righe = np.zeros(3)
          
@@ -134,9 +131,10 @@ class Cartella:
         
         Output
         ------
-        boolean : indica se la riga supera o meno la verifica: se la supera True - altrimenti False
-        
+        boolean : indica se la riga supera o meno la verifica: se la supera True
+        altrimenti False       
         """
+        
         if self.conta_righe[index_riga]>=5:
             return False
         elif self.conta_righe[index_riga]<5:
@@ -178,9 +176,10 @@ class Cartella:
         
         Output
         ------
-        boolean : indica se la posizione della cartella è libera per il posizionamento di un valore
-        
+        boolean : indica se la posizione della cartella è libera per il posizionamento 
+        di un valore
         """
+        
         if not self.verifica_vincolo_righe(index_riga):
             return False
         elif self.posizione_occupata(index_riga,index_colonna):
@@ -238,8 +237,8 @@ class Cartella:
         ------
         boolean : indica se nella posizione della cartella il numero è stato estratto o meno,
                  True se estratto - False se non è stato estratto
-        
         """
+        
         if self.cartella[index_riga][index_colonna] == -1:
             return True
         else:

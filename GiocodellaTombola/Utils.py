@@ -9,8 +9,6 @@ Created on Mon Jan 31 11:03:17 2022
 import argparse
 import Banco
 
-
-
 def initialize_parser():
     
     parser = argparse.ArgumentParser()

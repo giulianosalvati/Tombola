@@ -23,14 +23,13 @@ class Giocatore:
                        il banco assegna le cartelle richieste dal giocatore.
     
     """
-    
+ 
     # Costruttore
     def __init__(self , nome , num_cartelle, cartelle=None):
         self.nome = nome
         self.num_cartelle = num_cartelle
         self.cartelle = [] 
         
-
     def prendi_cartella(self, cartella_): 
         """
         Il giocatore aggiunge alle sue cartelle una nuova cartella.
@@ -42,9 +41,9 @@ class Giocatore:
            
         Output
         ------
-        Nan
-            
+        Nan          
         """
+        
         self.cartelle.append(cartella_)
     
     def controllo_numero(self,numero_estratto):
@@ -58,9 +57,9 @@ class Giocatore:
         
         Output
         ------
-        Nan
-              
-        """   
+        Nan             
+        """ 
+        
         if numero_estratto==90:
             colonna = 8
         else:
@@ -76,7 +75,8 @@ class Giocatore:
                     
                     
                     if stampa:                     # Tale if è necessario per non stampare più 
-                                                        # di una volta il messaggio
+                                                        # di una volta il messaggio qualora il giocatore
+                                                        # abbia lo stesso numero in piu cartelle
                         print('Ho il '+str(numero_estratto))
                         stampa = False
         
@@ -99,7 +99,8 @@ class Giocatore:
            
             if vincite==5:           # Se è gia stata vinta la cinquina
                                     # vedo se si è verificata la tombola: 
-                                    # cioe i valori nella cartella sono solo 0 e -1
+                                    # cioe i valori contenuti nella cartella 
+                                    # sono solo 0 e -1
                 occorenze = np.unique(self.cartelle[i].cartella)
                 
                 if len(occorenze)==2: 

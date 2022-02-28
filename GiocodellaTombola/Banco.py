@@ -17,7 +17,7 @@ class Banco:
 
     Classe Banco
     
-    Utilizzata al fine di assegnare ai diversi giocatori, le cartelle richieste.
+    Utilizzata al fine di assegnare ai diversi giocatori le cartelle richieste.
         Attributi della classe:
             - n_giocatori: numero di giocatori che partecipano al gioco inseriti sulla linea di comando
             - lista_cartelle: lista di numeri, ciascuno corrispondente al numero delle cartelle richieste dall' i-esimo giocatore'

@@ -22,8 +22,7 @@ class Tabellone(object):
         
         self.n = n
         self.extracted = []
-    
-    
+       
     def __iter__(self):
         """
         Metodo che restituisce un iteratore su iterabile

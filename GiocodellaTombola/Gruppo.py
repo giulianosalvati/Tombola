@@ -86,9 +86,8 @@ class Gruppo:
         
         """
         
-        
-        # assegno almeno un 1 su ciascuna colonna di ciascuna cartella, scegliendo casualmente la riga (occupando 54 caselle) 
-        
+        # assegno almeno un 1 su ciascuna colonna di ciascuna cartella, 
+        # scegliendo casualmente la riga (occupando 54 caselle)        
         for i in range(0,6):
             for j in range(0,9):
                 if(i== self.posizione_scelta and j==8): #su questa colonna già c'è almeno un numero, ovvero 90 (non devo riassegnarlo)
@@ -125,6 +124,7 @@ class Gruppo:
         ------
         somma_colonne(array[]) è un vettore che contiene il numero totale delle caselle occupate per ciascuna colonna del gruppo_cartelle
         """
+        
         somma_colonne=np.zeros(9)
         for c in range(0,6):
             for colonna in range(0,9):
@@ -169,8 +169,7 @@ class Gruppo:
         NaN
 
         """
-      
-        
+           
         for i in range(0,6): 
             for r in range(0,3):
                 if self.controllo_vincoli_colonne(vincoli): #se restituisce True il ciclo può terminare perchè vuol dire che i vincoli sono già rispettati e quindi non sono più necessari altri swap
@@ -250,8 +249,7 @@ class Gruppo:
         NaN
         
         """
-        
-        
+             
         self.inizializza_cartelle()
         
         #creo un vettore rappresentativo dei vincoli su ogni colonna del gruppo_cartelle 
@@ -289,8 +287,7 @@ def genera_gruppi(lista_cartelle):
     -------
     lista_cartelle_richieste (array[]) : lista di cartelle generate 
           
-    """
-          
+    """         
           
     lista_cartelle_richieste=[]
     conteggio= math.ceil(sum(lista_cartelle)/6) # Mi dice il numero di gruppi di 
