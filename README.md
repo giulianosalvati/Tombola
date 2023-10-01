@@ -1,49 +1,43 @@
-# Specifica del progetto "Gioco della tombola"
+# Project Specification: "Bingo Game"
 
-Il programma implementa il gioco della tombola.
+The program implements the bingo game.
 
-In particolare quello che fa è:
+In particular, it does the following:
 
-- estrarre a sorte i numeri da 1 a 90;
-- creare gruppi di 6 cartelle con le caratteristiche specificate di seguito;
-- registrare N giocatori;
-- assegnare un numero M di cartelle a ciascun giocatore (ogni giocatore può avere assegnate un numero diverso di cartelle, per seplicità si può supporre che M non possa essere maggiore di un valore predefinito);
-- verificare se un numero estratto è presente in una cartella e, se è presente, verificare se si è fatto ambo, terna, quaterna, cinquina o tombola e se uno di questi risultati risulta non ancora raggiunto
-- iniziare il gioco estraendo un numero alla volta e verificando ogni volta se qualche giocatore ha realizzato un ambo, una terna, una quaterna, una cinquina o una tombola; per semplicità si può supporre che al più un giocatore può realizzare uno di questi risultati dopo ogni estrazione;
-- terminare il gioco quando un giocatore ha realizzato una tombola.
+Randomly draw numbers from 1 to 90.
+Create groups of 6 cards with the specified characteristics below.
+Register N players.
+Assign a number M of cards to each player (each player can be assigned a different number of cards; for simplicity, assume that M cannot exceed a predefined value).
+Check if a drawn number is present on a card and, if present, check if a player has achieved two numbers in a row (ambo), three numbers (terna), four numbers (quaterna), five numbers (cinquina), or a full card (tombola), and if one of these results has not yet been achieved.
+Start the game by drawing one number at a time and checking each time if any player has achieved ambo, terna, quaterna, cinquina, or tombola; for simplicity, assume that at most one player can achieve one of these results after each draw.
+End the game when a player achieves a tombola.
+A group of 6 cards must meet the following conditions:
 
-Un gruppo di 6 cartelle verifica le seguenti condizioni:
+Each card has 3 rows and 9 columns.
+Each card has 15 cells marked with a number from 1 to 90 and 12 empty cells.
+Each row must contain exactly 5 numbers.
+Each column must contain 1 to 3 numbers.
+The first column contains numbers from 1 to 9, the second from 10 to 19, the third from 20 to 29, and so on, with the ninth column containing numbers from 80 to 90.
+When present on a card, the number 90 always occupies the bottom-right corner cell (row 3, column 9).
+Each number from 1 to 90 must be present on one and only one card.
 
-- ogni cartella ha 3 righe e 9 colonne
-- ogni cartella ha 15 caselle marcate da un numero da 1 a 90 e 12 caselle vuote
-- devono esserci esattamente 5 numeri su ogni riga
-- devono esserci da 1 a 3 numeri su ogni colonna
-- la prima colonna contiene i numeri da 1 a 9, la seconda i numeri da 10 a 19, la terza i numeri da 20 a 29,... la nona colonna contiene i numeri da 80 a 90
-- quando presente in una cartella, il numero 90 occupa sempre la casella nell'angolo in basso a destra (riga 3, colonna 9)
-- ogni numero da 1 a 90 deve essere presente su una e una sola cartella
+# Instructions for Playing
 
-È stata implementata una funzionalità aggiuntiva per cui anche il cartellone, con le sue 6 cartelle standard (diverse da quelle implementate per i giocatori descritte in precendeza), gioca a tombola come fosse un giocatore fisso. Quindi anche il cartellone può effettuare le vincite.
-
-# Istruzioni per giocare
-
-Per giocare digitare da linea di comando:
+To play, type the following command from the command line:
 
 > `python tombola.py -g numero_giocatori -n lista_numero_di_cartelle_per_giocatore`
 
-Ad esempio il comando:
+For example:
 
 > `python tombola.py -g 3 -n 3 2 4`
 
-Avvia il gioco con 3 giocatori che hanno rispettivamente 3, 2 e 4 cartelle.
+Starts the game with 3 players, each having 3, 6, and 4 cards, respectively.
 
-Per elencare tutte le opzioni possibili digitare:
+To list all possible options, type:
 
 > `python tombola.py -h`
 
-Premere `return` per estrarre un numero. Dopo ogni numero viene visualizzato il corrispondente risultato per ciascun giocatore.
-
-Ad ogni estrazione è possibile visualizzare lo stato delle cartelle dei giocatori e lo stato del cartellone. Per visualizzarli bisogna rispondere 'yes' o 'y' in
-input quando in linea di comando viene visualizzata:
+Press return to draw a number. After each number, the corresponding result for each player is displayed.
 
 > `Vuoi vedere le cartelle dei giocatori e quelle del cartellone? y/n :`
 
